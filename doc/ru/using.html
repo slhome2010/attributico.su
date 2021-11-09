@@ -1,0 +1,588 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'using';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+
+<!-- Docs page layout -->
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap section">
+        <?php require "sidebar.html";?>
+        <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <!-- using-->
+            <div class="docs-section">
+                <div class="page-header">
+                    <h1 id="using">Работа с модулем.</h1>
+                </div>
+                <h2 id="using-tree">Работа с деревом.</h2>
+                <p>Для активизации какого либо элемента дерева необходимо сделать <kbd class="small">Click</kbd> на этом элементе левой кнопкой мышки.</p>
+                <p>Для развертывания (раскрытия) какого либо элемента дерева необходимо сделать двойной <kbd class="small">Click</kbd> на этом элементе левой кнопкой мышки.</p>                
+                <h2 id="using-context-menu">Контекстное меню.</h2>
+                <p>Вызов контекстного меню осущесвляется кликом правой кнопкой мыши на каком либо <span class="tree">Узле</span>.</p>
+                <p>Действия, которые разрешено осуществлять по отношению к выбранным <span class="tree">Узлам</span> дерева будут активными в контекстном меню.
+                   Те же действие можно вызвать и по сочетанию "горячих" клавиш.</p>
+                <p>Основные манипуляции с <span class="node">Группами</span> и <span class="node">Атрибутами</span> Доступны и через Drag&Drop, и через контекстное меню, и с помощью "горячих" клавиш. Все действия отражены в <a href="#using-summary">сводной таблице</a>.</p>   
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-1">
+                            <col class="col-xs-1">
+                            <col class="col-xs-1">
+                            <col class="col-xs-4">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Действие</th>
+                                <th>Горячие клавиши</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-pencil"></i></td>
+                                <td>Редактировать</td>
+                                <th><kbd class="small">Shift + Click</kbd></th>
+                                <td>Включается режим однострочного редактора. Можно редактировать любой <span class="tree">Узел</span>.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-trash"></i></td>
+                                <td>Удалить</td>
+                                <th><kbd class="small">Del</kbd></th>
+                                <td>Удаляется выбранный <span class="tree">Узел</span> или несколько выбранных <span class="tree">Узлов</span> дерева.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-scissors"></i></td>
+                                <td>Вырезвть</td>
+                                <th><kbd class="small">Ctrl + X</kbd></th>
+                                <td>Выбранный <span class="tree">Узел</span> копируется в буфер. После выполнения вставки или слияния <span class="tree">Узел</span> удаляется. </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-copy"></i></td>
+                                <td>Копировать</td>
+                                <th><kbd class="small">Ctrl + C</kbd></th>
+                                <td>Выбранный <span class="tree">Узел</span> копируется в буфер. Его можно вставить в нужное место. </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td><i class="fa fa-paste"></i></td>
+                                <td>Вставить</td>
+                                <th><kbd class="small">Ctrl + V</kbd></th>
+                                <td>Вставка <span class="tree">Узла</span> находящегося в буфере.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-link"></i></td>
+                                <td>Объединить</td>
+                                <th><kbd class="small">Alt + V</kbd></th>
+                                <td>Выполняется слияние <span class="tree">Узла</span> находящегося в буфере с выбранным целевым <span class="tree">Узлом</span>.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-forward"></i></td>
+                                <td>Клонировать</td>
+                                <th><kbd class="small">Alt + C</kbd></th>
+                                <td>Выполняется заполнение <span class="node">Дежурных шаблонов</span> для всех языков идентичным содержимым.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-folder-open"></i></td>
+                                <td>Раскрыть/Свернуть</td>
+                                <th><kbd class="small">Ctrl + B</kbd></th>
+                                <td>Переключатель. С каждым нажатием выполняется раскрытие всех свернутых узлов дерева или сворачивание раскрытых.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-refresh"></i></td>
+                                <td>Обновить</td>
+                                <th><kbd class="small">Shift + R</kbd></th>
+                                <td>Позволяет перезагрузить выбранное дерево.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-gear"></i></td>
+                                <td>Настройки</td>
+                                <th></th>
+                                <td>Будет вызвано диалоговое меню настроек для данного дерева. Можно управлять "Порядком сортировки" и режимом сворачивания/разворачивания дерева.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-plus"></i></td>
+                                <td>Новая группа</td>
+                                <th><kbd class="small">Ctrl + M</kbd></th>
+                                <td>Добавится новая <span class="node">Группа</span> и включится однострочный редактор. Синхронно добавится во все деревья.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="fa fa-plus"></span></td>
+                                <td>Новый атрибут</td>
+                                <th><kbd class="small">Ctrl + Q</kbd></th>
+                                <td>В выбранную <span class="node">Группу</span> добавится новый <span class="node">Атрибут</span> и включится однострочный редактор. Синхронно добавится во все деревья.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 id="using-dialog">Диалоговое меню.</h2>
+                <p>Если в <a href="#using-context-menu">контекстном меню</a> выбрать пункт "Настройки", то появится диалоговое окно управления деревом.</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Пункт</th>
+                                <th>Назначение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Автоматически сворачивать</td>
+                                <td>По умолчанию - включено, значит при разворачивании какого либо элемента дерева, ближайшие родственные элементы (элементы того же уровня)
+                                    будут сворачиваться. Это сделано, чтоб не загромождать экран информацией. Но иногда требуется видеть сразу несколько развернутых элементов,
+                                    тогда следует этот пункт отключить. В зависимости от этого работают пункты <a href="#using-context-menu">контекстного меню</a> "Развернуть" и "Свернуть"</td>
+                            </tr>
+                            <tr>
+                                <td>Порядок сортировки</td>
+                                <td>Позволяет временно отключить порядок сортировки в конкретном дереве. При отключенном пункте все сортируется по алфавиту.</td>
+                            </tr>
+                            <tr>
+                                <td>Ленивая загрузка</td>
+                                <td>Оперативное управление режимом загрузки деревьев. Если режим включен, то, как и раньше, дочерние узлы подгружаются по запросу. Если отключен, дерево грузится полностью. Более подробно в разделе
+                                    <a href="theory.html#theory-loading">Загрузка узлов</a>.</td>
+                            </tr>
+                            <tr>
+                                <td>Учитывать иерархию</td>
+                                <td>Работает только в дереве категорий. Для оперативного управления рекурсивным выбором подкатегорий.</td>
+                            </tr>
+                            <tr>
+                                <td>Расхождения</td>
+                                <td>Работает только в дереве товаров. Для оперативного управления <a href="theory.html#theory-product">выборкой товаров</a>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 id="using-edit">Редактирование.</h2>
+                <p>Режим редактирования включается на выбранном <span class="tree">Узле</span> через <kbd class="small">Shift + Click</kbd> или <kbd class="small">F2</kbd> или через <a class="anchor" href="#using-context-menu">контекстное меню</a>.</p>
+                <p>Редактирование данных происходит в каждом дереве и для каждого языка отдельно. При необходимости обеспечения целостности данных срабатывает синхронизация.</p>
+                <div class="callout callout-info">
+                    <h4>Разница редактирования <span class="node">Шаблонов</span> и <span class="node">Значений</span></h4>
+                    <p>Если Вы вносите изменения в <span class="node">Значение</span>, то изменения произойдут во всех товарах, где присутствует это <span class="node">Значение</span>, а значит и во всех <span class="node">Шаблонах</span>. Т.е. если <span class="node">Значение</span> присуствует в нескольких <span class="node">Шаблонах</span>, то изменения коснутся их всех.</p>
+                    <p>Если изменения делаются в <span class="node">Шаблоне</span>, то это касаются всех товаров, где присутствует данный <span class="node">Атрибут</span> и его значение в точности совпадает с редактируемым <span class="node">Шаблоном</span>, другие товары и <span class="node">Шаблоны</span> затронуты не будут.</p>
+                </div>
+                <p>Некоторые особенности редактирования <span class="node">Значений</span> можно уточнить в описании настройки<a class="anchor" href="settings.html#settings-replace"><mark><small>Редактирование значений</small></mark></a>.</p>
+                <h2 id="using-value">Удаление значений.</h2>
+                <p>Операцию можно выполнить через <a class="anchor" href="#using-context-menu">контекстное меню</a> или клавишей <kbd class="small">Del</kbd>. Можно удалить <span class="node">Значение</span>, <span class="node">Шаблон</span> или сразу несколько (используя <a href="#using-select">мультиселект</a>).</p>
+                <p>Операция, на самом деле, непростая. Вы должны хорошо представлять себе механизм, который стоит за нажатием одной клавиши.</p>
+                <p>Напомним, что <span class="node">Значения</span> или описание характеристики товара это обычные текстовые поля, связанные с конкретным товаром. Они не имеют id-шников. Т.е. в Базе Данных они прописываются как текст в каждом товаре. Это означает, что удалить их можно только из товаров. По сути удаление <span class="node">Значений</span> это опрерация по удалению
+                    <span class="node">Атрибута</span> из товара если <span class="node">Значение</span> этого <span class="node">Атрибута</span> совпадает с образцом.</p>
+                <p>Допустим есть товар или товары, у которых <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> принимает <span class="node">Значение</span> <code>тестовое значение 3.2.1</code></p>
+                <p>И есть товар или товары, у которых <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> принимает <span class="node">Значение</span> <code>тестовое значение 3.2.2</code></p>
+                <p>Необходимо у всех товаров удалить <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> если он принимает <span class="node">Значение</span> <code>тестовое значение 3.2.1</code></p>
+                <p>Если бы мы делали это вручную, то нам пришлось бы открывать каждый товар, просматривать список <span class="node">Атрибутов</span> и <span class="node">Значений</span> и нажимть кнопку
+                    <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Удалить"><i class="fa fa-minus-circle"></i></button> если значение совпало с <code>тестовое значение 3.2.1</code></p>
+                <ul id="gallery_5" class="list-unstyled row">
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/product1.jpg" title="Hierarchical multi-selection"><img src="/img/help/attributico/product1.jpg" alt="Tree1" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/product2.jpg" title="Hierarchical operate"><img src="/img/help/attributico/product2.jpg" alt="Tree2" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                </ul>
+                <p>Теперь эту операцию можно сделать в один клик для всех товаров.</p>
+                <p>Все было бы хорошо, если бы товар имел-бы только одно <span class="node">Значение</span> или, иначе, одну характеристику для одного <span class="node">Атрибута</span>, но зачастую
+                    их бывает <a href="theory.html#theory-template">несколько</a>. Как быть если у нас есть еще товар или товары, где <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> принимает <span class="node">Значение</span>
+                    <code>тестовое значение 3.2.1/тестовое значение 3.2.2</code>? Удалять или оставить?</p>
+                <a class="lightgallery" href="/img/help/attributico/product3.jpg" title="Settings"><img src="/img/help/attributico/product3.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <p>Чтобы избежать неоднозначности, в модуле предусмотрено два режима удаления <span class="node">Значений</span> - по точному совпадению и по вхождению подстроки в строку.</p>
+                <p>Удаление по точному совпаденю будет происходить если выбраны узлы с родителем <span class="node">Шаблоны</span>.</p>
+                <p>Удаление по вхождению подстроки в строку будет происходить если выбраны узлы с родителем <span class="node">Значения</span>.</p>
+                <p>В превом случае удаления не произойдет, во втором <span class="node">Атрибут</span> будет удален.</p>
+                <ul id="gallery_6" class="list-unstyled row">
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/product4.jpg" title="Hierarchical multi-selection"><img src="/img/help/attributico/product4.jpg" alt="Tree1" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/product5.jpg" title="Hierarchical operate"><img src="/img/help/attributico/product5.jpg" alt="Tree2" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                </ul>
+                <div class="callout callout-danger">
+                    <h4>Разница между удалением <span class="node">Шаблонов</span> и <span class="node">Значений</span></h4>
+                    <p>Удаление <span class="node">Шаблона</span> это удаление по точному совпаденю поля в товаре с образцом.</p>
+                    <p>Удаление <span class="node">Значения</span> это удаление по вхождению образца в поле в товаре.</p>
+                    <p>Осторожно! Если вы удалите <span class="node">Значения</span>, будут удалены также все <span class="node">Шаблоны</span>, содержащие выбранное <span class="node">Значение</span>.</p>
+                </div>
+                <h2 id="using-duty">Создание дежурного шаблона.</h2>
+                <p>Создание <a href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a> производится на вкладке <mark><small>Дежурные шаблоны</small></mark> или на вкладке <mark><small>Атрибуты</small></mark>,
+                    если в дерево добавлен <span class="tree">Узел</span> <span class="node">Дежурного шаблона</span> в настройках деревьев. </p>
+                <p>На выбранном узле надо войти в режим редактирования, после чего ввести необходимые значения через разделитель или без.</p>
+                <p>Существует еще один режим создания <span class="node">Дежурного шаблона</span>. </p>
+                <p>Если после входа в режим редактирования нажать <kbd class="small">Alt + Shift + Click</kbd>, то включится подгрузка уже имеющихся в товарах <span class="node">Значений</span>.
+                    Если таких <span class="node">Значений</span> нет, то в списке будет только <code>No data...</code>.
+                </p>
+                <ul id="gallery_9" class="list-unstyled row">
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/duty1.jpg" title="Duty dropdown select"><img src="/img/help/attributico/duty1.jpg" alt="Duty1" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/duty2.jpg" title="Duty dropdown no datat"><img src="/img/help/attributico/duty2.jpg" alt="Duty2" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                </ul>
+                <h2 id="using-duty-del">Удаление дежурного шаблона.</h2>
+                <p>Удаление (очистка) <a href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a> производится через <a href="#using-context-menu">контекстное меню</a> или клавишей <kbd class="small">Del</kbd>.</p>
+                <p>Операцию можно производить только на вкладках <mark><small>Дежурные шаблоны</small></mark> или  <mark><small>Группы атрибутов</small></mark>. Данная операция не затрагивает товары. Удаляется только <span class="node">Дежурный шаблон</span>.</p>
+                <h2 id="using-duty-clone">Клонирование дежурного шаблона.</h2>
+                <p>Очень часто <span class="node">Дежурный шаблон</span> представляет собой набор числовых значений, не нуждающихся в переводе на другие языки. Например, <code>20°C - 40°C</code>, или <code>2G/3G (WCDMA/UMTS)/4G (LTE)</code> </p> 
+                <p>Заполнив <span class="node">Дежурный шаблон</span> для одного языка, можно сразу клонировать его в другие языки.</p> 
+                <p>Клонирование <a href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a> производится через <a href="#using-context-menu">контекстное меню</a> или по сочетанию клавиш <kbd class="small">Alt + C</kbd>.</p>                                
+                <h2 id="using-dnd">Drag-and-Drop технологии.</h2>
+                <p>Даже ради этого стоит использовать Attribut&amp;co. Насколько удобней например, перетащить мышкой <span class="node">Атрибут</span> из <span class="node">Группы</span> в <span class="node">Группу</span>
+                    , чем открывать формы, в одной форме добалять в другой форме удалять название новой <span class="node">Группы</span>. В общем возможности d&d технологии можно описать так:</p>
+                <ul>
+                    <li>Перетаcкивание <span class="tree">Узлов</span> внутри одного дерева</li>
+                    <li>Перетаcкивание <span class="tree">Узлов</span> между деревьями</li>
+                </ul>
+                <p>Применительно к нашим задачам:</p>
+                <ul>
+                    <li>Изменение <span class="node">Группы</span> у <span class="node">Атрибута</span></li>
+                    <li>Сортировка <span class="node">Групп</span></li>
+                    <li>Сортировка <span class="node">Атрибутов</span> внутри <span class="node">Группы</span></li>
+                    <li>Добавление <span class="node">Атрибута</span> в категорию</li>
+                    <li>Изменение категории у <span class="node">Атрибута</span></li>
+                    <li>Слияние <span class="node">Атрибутов</span> (объединение) без потери <span class="node">Значений</span> и связей;</li>
+                </ul>
+                <p>Как это работает можно увидеть в разделе <a href="example.html#using-example">Примеры</a>.</p>
+                <p>Все действия, которые поддерживает Drag-and-Drop, можно выполнить с помощью  <a href="#using-context-menu">контекстного меню</a> или горячих клавиш. Каждый выбирает то, что ему удобно. Все действия отражены в <a href="#using-summary">сводной таблице</a>.</p>
+                <h2 id="using-select">Мультиселект.</h2>
+                <p>Все действия Drag-and-Drop, а так же Copy-Paste можно выполнять не только над одним <span class="tree">Узлом</span>, но и над несколькими
+                    <span class="tree">Узлами</span> одновременно. Для того, чтобы выделить несколько <span class="tree">Узлов</span>, кликайте по этим <span class="tree">Узлам</span>
+                    левй кнопкой мышки одновременно с клавишей "Ctrl" (<kbd class="small">Ctrl + Click </kbd>). Чтобы обезопасить пользователя от ошибок, в модуле предусмотрен <code>selectcontrol</code>.
+                    Поэтому, например, вы не сможете одновременно выделить и <span class="node">Группы</span> и <span class="node">Атрибуты</span>.</p>
+                <h2 id="using-merge">Слияние атрибутов.</h2>
+                <p>Всем знакомая картина, когда <span class="node">Атрибуты</span> с разными названиями несут одну и ту же смысловую нагрузку. Например, "Страна производитель", "Производитель" и
+                    "Страна производства" это, скорее всего, один и тот же <span class="node">Атрибут</span>, который логично объединить под одним названием, допустим "Страна производитель".
+                    Некоторые называют такое сопоставление "неявными дублями". Объединить "неявные дубли" в автоматическом режиме невозможно, поэтому придется делать это вручную. Но облегчит нам работу
+                    технология Drag-and-Drop.</p>
+                <p>Если перетащить один <span class="tree">Узел</span> в другой с помошью Drag-and-Drop и одновременно нажатой клавишей "Ctrl", то произойдет слияние перетаскиваемого <span class="tree">Узла</span> с целевым.
+                    Если просто перетаскивать <span class="tree">Узлы</span> без "Ctrl", то будет выполняться задача сортировки или смены <span class="node">Группы</span>. Таким образом <kbd class="small">Ctrl + Drag-and-Drop</kbd>
+                    - слияние <span class="node">Атрибутов</span>.</p>
+                <p>Возникает резонный вопрос - а что происходит при слиянии <span class="node">Атрибутов</span> с их <span class="node">Значениями</span>? Операция слияния проходит без потери связей
+                    с товарами или категориями, поэтому <span class="node">Значения</span> тоже никуда не теряются. В случае, когда один и тот же товар связан и с целевым и с объединяемым <span class="node">Атрибутом</span>,
+                    <span class="node">Значения</span> объединяемого добавляются к целевому. Например, <span class="node">Значения</span> целевого <span class="node">Атрибута</span> были "Россия/Франция"
+                    после слияния станут "Россия/Франция/Германия". Новое значение добавляется через разделитель. Если товары не связаны с целевым <span class="node">Атрибутом</span>, то просто меняется связь с объединяемого на
+                    целевой. Для наглядности желательно посмотреть <a href="example.html#using-example">видеопример</a>.</p>
+                <p>Можно провести слияние сразу нескольких <span class="node">Атрибутов</span> с целевым. Для этого используйте <a href="#using-select">мультиселект</a>. Разрешено слияние <span class="node">Атрибутов</span>
+                    из разных <span class="node">Групп</span>.</p>
+                <p>Возможно делать слияние <span class="node">Групп</span>. В этом случае все <span class="node">Атрибуты</span> выбранной <span class="node">Группы</span> будут перемещены
+                    в целевую, а выбранная <span class="node">Группа</span> (список <span class="node">Групп</span>) будет удалена.</p>
+                <div class="callout callout-danger">
+                    <h4>Не забывайте!</h4>
+                    <p>В результате выполнения операции слияния, <span class="tree">Узлы</span>, отмеченные как объединяемые, будут удалены без возможности восстановления. Спасет только резервная
+                        копия базы данных.</p>
+                </div>
+                <h2 id="using-attribute-category">Атрибуты категории.</h2>
+                <p>Идея использования набора атрибутов для массового присваивания однотипным товарам лежит в основе работы данного модуля. Подготовить набор <span class="node">Атрибутов категории</span>
+                    можно несколькими способами.</p>
+                <p>Самый простой способ - использование технологий Drag-and-Drop. Просто перетащите мышкой выбранный <span class="node">Атрибут</span> или несколько
+                    отмеченных с помощью <a href="#using-select">мультивыбора</a> в дерево <span class="tree">Категории</span> или, непосредственно, в дерево <span class="tree">Атрибуты категорий</span>.</p>
+                <p>Можно отметить чекбоксы сразу нескольких категорий и перетащить отмеченные <span class="node">Атрибуты</span> сразу во все отмеченные категории
+                    одним движением.</p>
+                <p>Рекомендуется посмотреть видео в разделе <a href="example.html#using-example">Примеры</a>.</p>
+                <p>Еще один способ - использование инструмента <a href="tools.html#tools-category">Атрибуты категорий</a>.</p>
+                <p>Добавление <span class="node">Атрибутов категории</span> в товар производится в соответствии с настройками <a href="settings.html#settings-category">Атрибуты категорий</a> и
+                    <a href="settings.html#settings-inherit">Наследование</a>. Для инструмента эта настройка вынесена отдельно и ей управляет чекбокс <mark><small>Расставить атрибуты категории в товары</small></mark>.</p>
+                <p>Добавить <span class="node">Атрибуты категории</span> в товар можно и в карточке товара. Как это сделать, описано в разделе <a href="integro.html#integro-attribute">Интеграция с Opencart</a>.</p>
+                <p>Одновременно с добавлением <span class="node">Атрибутов категории</span>, в товар добавляются и их <span class="node">Значения</span> или, точнее,
+                    <span class="node">Дежурный шаблон</span>. Происходит это в зависимости от настроек <a href="settings.html#settings-product">Добавление значений атрибута в товар</a>.</p>
+                <h2 id="using-search">Фильтр.</h2>
+                <p>Какие наши действия при обнаружении ошибок в <span class="node">Атрибутах</span> или, что гораздо хуже в <span class="node">Значениях</span>? Кто виноват и что делать?
+                    Отловить товары где есть ошибка, например с помощью filterpro. Зайти в каждый товар и исправить. Ну представьте, что вы пропустили одну букву,
+                    а товаров, подлежащих исправлению, допустим 50. Так вот, Фильтр, позволит найти искомое в дереве. Причем неважно <span class="node">Группа</span> это <span class="node">Атрибут</span>
+                    или <span class="node">Значение</span>. Исправить можно здесь же.</p>
+                <p class="lead">Опции фильтра.</p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Опция</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="im">Только Атрибуты</th>
+                                <td>Поиск будет осуществляться только в <span class="node">Атрибутах</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Только Значения</th>
+                                <td>Поиск будет осуществляться только в <span class="node">Шаблонах</span> и <span class="node">Значениях</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Скрыть несовпадения</th>
+                                <td><span class="tree">Узлы</span>, в которых не найдено совпадений, будут скрыты.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">автоРазвернуть</th>
+                                <td> Автоматически раскрывает <span class="tree">Узлы</span>, в которых найдены совпадения. Зависит от состояния пункта диалогового меню
+                                    <span class="im">Автоматически сворачивать</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Счетчики узлов</th>
+                                <td>Показывает в скольки <span class="tree">Узлах</span> есть вхождения поискового запроса.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Счетчики раскрытых</th>
+                                <td> Скрывает счетчики с раскрытых <span class="tree">Узлов</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Выделить</th>
+                                <td>Найденное будет подсвечено желтым цветом.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Примерно</th>
+                                <td>Поиск по нечетким данным. Возможно по совпадению одиночных символов например, 'кп' будет найдено 'Компьютеры'.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Регулярное выражение</th>
+                                <td>Строка поиска задана с помощью регулярного выражения.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="callout callout-info">
+                    <h4>Счетчики узлов.</h4>
+                    <p>Счетчики работают корректно только при отключении ленивой загрузки.</p>
+                </div>
+                <div class="callout callout-danger">
+                    <h4>HTML.</h4>
+                    <p>Фильтр не может работать должным образом, если заголовки <span class="tree">Узлов</span> содержат HTML - разметку..</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Скорость поиска.</h4>
+                    <p>Скорость поиска зависит от количества <span class="tree">Узлов</span> и текста в заголовках <span class="tree">Узлов</span>. На больших магазинах с большим количеством
+                        <span class="node">Значений</span> работать может медленно. Скорость значительно увеличивается при отключенном режиме ленивой загрузки.</p>
+                </div>
+                <p>В версии 2.0.3 произошли некоторые полезные доработки фильтра. Для больших магазинов, где есть вероятность зависания фильтра, теперь есть возможность отключить автозаполнение.
+                    Т.е. поиск не будет осуществляться по каждой введенной букве. После ввода целого слова или фразы можно будет запустить поиск нажатием на кнопку <button id="btnSearch" type="button" class="btn btn-outline-dark"><i
+                            class="fa fa-search"></i></button>.</p>
+                <p>Поисковая строка фильтра теперь выглядит так:</p>
+                <div class="small highlight">
+                    <div class="form-group form-inline" id="tab-attribute_filterwidget1">
+                        <label for="tab-attribute_search1" style="margin-left:1px;">Фильтр:</label>
+                        <input type="text" name="tab-attribute_search1" placeholder="Filter..." class="form-control" id="tab-attribute_search1" style="margin-left:1px;">
+                        <button id="tab-attribute_btnResetSearch1" type="button" class="btn btn-outline-dark" value="S" style="margin-left:1px;" disabled="disabled"><i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <button id="tab-attribute_btnSearch1" type="button" class="btn btn-outline-dark" value="R" style="margin-left:1px;"><i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                        <div class="btn-group" role="group" style="margin-left:1px;">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Выполнить
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Найти пустые</a>
+                                <a class="dropdown-item" href="#">Найти числовые</a>
+                                <a class="dropdown-item" href="#">Найти HTML теги</a>
+                                <a class="dropdown-item" href="#">Восстановить</a>
+                            </div>
+                        </div>
+
+                        <input type="checkbox" name="fs_tab-attribute_autoComplete1" id="fs_tab-attribute_autoComplete1" style="margin-left:1rem;"><label for="fs_tab-attribute_autoComplete1"
+                            style="padding-top:0px; margin-left:1px; font-weight:normal;">Автозаполнение</label>
+                        <input type="checkbox" name="fs_tab-attribute_attributesOnly1" id="fs_tab-attribute_attributesOnly1" style="margin-left:1rem;"><label for="fs_tab-attribute_attributesOnly1"
+                            style="padding-top:0px; margin-left:1px; font-weight:normal;">Только Атрибуты</label>
+                        <input type="checkbox" name="fs_tab-attribute_leavesOnly1" id="fs_tab-attribute_leavesOnly1" style="margin-left:1rem;"><label for="fs_tab-attribute_leavesOnly1"
+                            style="padding-top:0px; margin-left:1px; font-weight:normal;">Только Значения</label>
+
+                        <div class="form-check form-check-inline" id="tab-attribute_searchmode1" style="margin-top:1em;">
+                            <input type="checkbox" name="fs_tab-attribute_hideMode1" id="fs_tab-attribute_hideMode1" style="margin-left:1rem;"><label for="fs_tab-attribute_hideMode1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Скрыть несовпадения</label>
+                            <input type="checkbox" name="fs_tab-attribute_autoExpand1" id="fs_tab-attribute_autoExpand1" checked="checked" style="margin-left:1rem;"><label for="fs_tab-attribute_autoExpand1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">автоРазвернуть</label>
+                            <input type="checkbox" name="fs_tab-attribute_counter1" id="fs_tab-attribute_counter1" checked="checked" style="margin-left:1rem;"><label for="fs_tab-attribute_counter1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Счетчики узлов</label>
+                            <input type="checkbox" name="fs_tab-attribute_hideExpandedCounter1" id="fs_tab-attribute_hideExpandedCounter1" checked="checked" style="margin-left:1rem;"><label for="fs_tab-attribute_hideExpandedCounter1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Счетчики раскрытых</label>
+                            <input type="checkbox" name="fs_tab-attribute_highlight1" id="fs_tab-attribute_highlight1" checked="checked" style="margin-left:1rem;"><label for="fs_tab-attribute_highlight1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Выделить</label>
+                            <input type="checkbox" name="fs_tab-attribute_fuzzy1" id="fs_tab-attribute_fuzzy1" style="margin-left:1rem;"><label for="fs_tab-attribute_fuzzy1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Примерно</label>
+                            <input type="checkbox" name="fs_tab-attribute_regex1" id="fs_tab-attribute_regex1" style="margin-left:1rem;"><label for="fs_tab-attribute_regex1"
+                                style="padding-top:0px; margin-left:1px; font-weight:normal;">Регулярное
+                                выражение</label>
+                        </div>
+                    </div>
+                </div>
+                <p>Кнопка поиска <button id="btnSearch" type="button" class="btn btn-outline-dark"><i class="fa fa-search"></i></button> становится доступной при отключенном автозаполнении.</p>
+                <p>Выпадающее меню с заголовком <span class="im">Выполнить</span> открывает список команд для поиска по наиболее популярным Регулярным Выражениям. Комманда
+                    <span class="im">Восстановить</span> очищает фильтр и восстанавливает состояние чекбоксов.</p>
+                <p>Отдельно стоит объяснить действие настроек <span class="im">Только Атрибуты</span> и <span class="im">Только Значения</span>. Точнее было бы назвать настройку
+                    <span class="im">Только Атрибуты</span> как <span class="im">Поиск только в загруженных узлах</span>. Для понимания определения <mark><small>загруженных узлов</small></mark>,
+                    надо прочитать раздел <a href="theory.html#theory-loading">Загрузка узлов</a>. Это означает, что поиск будет производиться в <span class="node">Атрибутах</span> и <span class="node">Группах</span>,
+                    если до этого не были загружены дочерние узлы. Если до этого <span class="node">Шаблоны</span> или <span class="node">Значения</span> были загружены, то поиск будет производиться и в них тоже.</p>
+                <p>Поиск в режиме <span class="im">Только Значения</span> имеет более высокий приоритет, но он и является наиболее медленным, т.к. происходит обход и загрузка всех узлов дерева.</p>
+                <div class="callout callout-info">
+                    <h4>Состояние фильтра.</h4>
+                    <p>Управление видимостью фильтра осуществляется нажатием на значок <span style="color: #1e91cf; background: #F9F2F4"><i class="fa fa-angle-double-down fa-lg"></i></span> справа.</p>
+                    <p>В момент нажатия <button type="button" class="btn btn-success" data-toggle="tooltip" title="Применить" data-placement="top"><i class="fa fa-check"></i></button> или
+                        <button type="button" data-toggle="tooltip" title="Сохранить" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                        состояние фильтра сохраняется для каждого дерева.</p>
+                </div>
+                <h2 id="using-summary">Сводная таблица.</h2>
+                <div class="alert alert-light" role="alert">
+                    <p>Сокращение Drag&Drop означает перетаскивание узлов с нажатой левой кнопкой мыши <sup><span class="badge badge-danger">***</span></sup></p>
+                    <p>Источник - узел или узлы, которые надо переместить. Цель - узел, куда надо перместить <sup><span class="badge badge-danger">**</span></sup></p>
+                    <p>Уровень - глубина расположения узла в иерархии дерева <sup><span class="badge badge-danger">*</span></sup></p>
+                </div>
+
+                <table class="table table-bordered list">
+                    <thead>
+                        <tr>
+                            <th>Операция</th>
+                            <th>Мышь/Drag&Drop</th>
+                            <th>Меню</th>
+                            <th>Клавиатура</th>
+                            <th>Примечание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Раскрыть/Свернуть узел</td>
+                            <td>Двойной клик</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Выделить узел</td>
+                            <td>Ctrl + клик</td>
+                            <td></td>
+                            <td></td>
+                            <td>Можно выделить несколько узлов.</td>
+                        </tr>
+                        <tr>
+                            <td>Контекстное меню</td>
+                            <td>Правая кнопка</td>
+                            <td></td>
+                            <td></td>
+                            <td>Есть подсказки горячих клавиш.</td>
+                        </tr>
+                        <tr>
+                            <td>Добавить группу</td>
+                            <td></td>
+                            <td>Новая группа</td>
+                            <td><kbd>[Ctrl+M]</kbd></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Добавить атрибут</td>
+                            <td></td>
+                            <td>Новый атрибут</td>
+                            <td><kbd>[Ctrl+Q]</kbd></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Редактировать</td>
+                            <td></td>
+                            <td>Редактировать</td>
+                            <td><kbd>[Shift+Enter]</kbd></td>
+                            <td>Подтверждение - <kbd>[Enter]</kbd> Отмена - <kbd>[Esc]</kbd>.</td>
+                        </tr>
+                        <tr>
+                            <td>Удалить</td>
+                            <td></td>
+                            <td>Удалить</td>
+                            <td><kbd>[Del]</kbd></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Сортировать</td>
+                            <td>Drag&Drop</td>
+                            <td>Вырезать > Вставить</td>
+                            <td><kbd>[Ctrl+X]</kbd> > <kbd>[Ctrl+V]</kbd></td>
+                            <td>Уровни источника и цели должны совпадать. Сортировать можно группы или атрибуты внутри группы.</td>
+                        </tr>
+                        <tr>
+                            <td>Копировать</td>
+                            <td></td>
+                            <td>Копировать > Вставить</td>
+                            <td><kbd>[Ctrl+C]</kbd> > <kbd>[Ctrl+V]</kbd></td>
+                            <td>Копировать можно только атрибуты. Вставить только в группу или в категорию.</td>
+                        </tr>
+                        <tr>
+                            <td>Сменить группу</td>
+                            <td>Drag&Drop</td>
+                            <td>Вырезать > Вставить</td>
+                            <td><kbd>[Ctrl+X]</kbd> > <kbd>[Ctrl+V]</kbd></td>
+                            <td>Источник - атрибут. Цель -группа</td>
+                        </tr>
+                        <tr>
+                            <td>Слияние атрибутов или групп</td>
+                            <td>Ctrl + Drag&Drop</td>
+                            <td>Вырезать > Объединить</td>
+                            <td><kbd>[Ctrl+X]</kbd> > <kbd>[Alt+V]</kbd></td>
+                            <td>Уровни источника и цели должны совпадать. Если источник атрибут, то цель должна быть атрибутом.</td>
+                        </tr>
+                        <tr>
+                            <td>Добавить атрибут в категорию</td>
+                            <td>Drag&Drop</td>
+                            <td>Копировать > Вставить</td>
+                            <td><kbd>[Ctrl+C]</kbd> > <kbd>[Ctrl+V]</kbd></td>
+                            <td>Источник - атрибут. Цель - категория.</td>
+                        </tr>
+                        <tr>
+                            <td>Сменить категорию</td>
+                            <td>Drag&Drop</td>
+                            <td>Вырезать > Вставить</td>
+                            <td><kbd>[Ctrl+X]</kbd> > <kbd>[Ctrl+V]</kbd></td>
+                            <td>Источник - атрибут в дереве "Атрибуты категорий". Цель - категория в дереве "Категории".</td>
+                        </tr>
+                        <tr>
+                            <td>Удалить из категории</td>
+                            <td></td>
+                            <td>Удалить</td>
+                            <td><kbd>[Del]</kbd></td>
+                            <td>Атрибут из дерева "Атрибуты категорий".</td>
+                        </tr>
+                        <tr>
+                            <td>Выбрать из списка дежурный шаблон</td>
+                            <td></td>
+                            <td>Редактировать</td>
+                            <td><kbd>[Shift+Enter]</kbd> + <kbd>[Alt+Shift+Click]</kbd></td>
+                            <td>Войти в режим редактирования затем нажать <kbd>[Alt+Shift+Click]</kbd>.</td>
+                        </tr>
+                        <tr>
+                            <td>Клонировать Дежурный шаблон в другие языки</td>
+                            <td></td>
+                            <td>Клонировать</td>
+                            <td><kbd>[Alt+C]</kbd></td>
+                            <td>Пустые шаблоны не клонируются.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </main>
+        <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+            <ul class="side-nav">
+                <li class="nav-item"><a class="nav-link" href="#using-tree">Работа с деревом</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-context-menu">Контекстное меню</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-dialog">Диалоговое меню</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-edit">Редактирование</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-value">Удаление значений</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-duty">Создание дежурного</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-duty-del">Удаление дежурного</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-duty-clone">Клонирование дежурного</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-dnd">Drag-and-Drop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-select">Мультиселект</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-merge">Слияние</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-attribute-category">Атрибуты категории</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-search">Фильтр атрибутов</a></li>
+                <li class="nav-item"><a class="nav-link" href="#using-summary">Сводная таблица</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

@@ -1,0 +1,95 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co download page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	require "./header.php";
+?>
+<header>
+    <nav id="navbar-top" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #156EAC;">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo-attributico.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+                Attribut&amp;co
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="badge badge-version"><?php echo $version_short;?></span>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="col-8">
+                    <ul class="navbar-nav">
+                        <!-- <li class="nav-item active"><a class="nav-link" href="#home"><span class="glyphicon glyphicon-home sr-only"></span></a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="#files"><?php echo $entry_archive;?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#license"><?php echo $entry_licence;?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/doc/<?php echo addslashes($_SESSION['lang']);?>/attributico.html"><?php echo $entry_documentation;?></a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#language" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $entry_language;?></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/index.php?lang=ru&page=common/download"><img src="/img/ru.png"> Русский</a>
+                                <a class="dropdown-item" href="/index.php?lang=en&page=common/download"><img src="/img/en.png"> English</a>
+                            </div>
+                        </li>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="nav-item btn btn-sm btn-outline-light ml-2" href="/common/payment.html"><?php echo $entry_buy;?></a>
+                </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <section id="files" class="section mt-3">
+        <h1 class="mb-3 text-center"><?php echo $entry_downloads;?></h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th><?php echo $entry_file_name; ?></th>
+                        <th></th>
+                        <th><?php echo $entry_download; ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($filelist) { ?>
+                    <?php foreach ($filelist as $file) { ?>
+                    <tr>
+                        <td class="text-left"><?php echo $file; ?></td>
+                        <td class="text-left"><?php echo date('d.m.Y H:i:s', filectime($dir_download . $file)); ?></td>
+                        <td><a href="/download.php?file=<?php echo $dir_download . $file;?>" data-toggle="tooltip" title="<?php echo $button_download; ?>" class="btn btn-info"><i class="fa fa-cloud-download"></i></a></td>
+                    </tr>
+                    <?php } ?>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="license" class="section">
+        <h1 class="mb-3 text-center"><?php echo $entry_licence;?></h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th><?php echo $entry_file_name; ?></th>
+                        <th></th>
+                        <th><?php echo $entry_download; ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($license) { ?>
+                    <?php foreach ($license as $file) { ?>
+                    <tr>
+                        <td class="text-left"><?php echo $file; ?></td>
+                        <td class="text-left"><?php echo date('d.m.Y H:i:s', filectime($dir_download . $file)); ?></td>
+                        <td><a href="/download.php?file=<?php echo $dir_download . $file;?>" data-toggle="tooltip" title="<?php echo $button_download; ?>" class="btn btn-info"><i class="fa fa-cloud-download"></i></a></td>
+                    </tr>
+                    <?php } ?>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+<!-- Footer -->
+<?php require "./footer.php"; ?>

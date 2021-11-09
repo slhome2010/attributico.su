@@ -1,0 +1,31 @@
+# Opencart ignore list
+*.log
+_stock/
+
+!index.html
+# 1.5.x - 2.1.x 
+image/data/
+image/cache/
+system/cache/
+system/logs/
+# 2.3.x 
+system/storage/logs/
+system/storage/cache/
+system/storage/upload/
+# vQmod log files
+vqmod/logs/*
+# vQmod cache files
+vqmod/vqcache/*
+vqmod/checked.cache
+vqmod/mods.cache
+
+# myProjects settings
+*.code-workspace
+*.zip
+*.iep
+*.log
+*.txt
+wtools-win32-ia32/
+nbproject/
+.vscode/
+payment.html

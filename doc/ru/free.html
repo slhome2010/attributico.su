@@ -1,0 +1,51 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'free';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+<!-- Docs page layout -->
+<div class="container-fluid">
+	<div class="row flex-xl-nowrap section">
+		<?php require "sidebar.html";?>
+		<main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+			<!-- Free version differences -->
+			<div class="docs-section">
+				<div class="page-header">
+					<h1 id="free">Особенности версии View.</h1>
+				</div>
+				<p>Существует бесплатный аналог модуля Attribut&amp;co. Собственно говоря это тот же модуль, только с ограниченными возможностями. Внешне бесплатная версия не отличается от платного аналога, за исключением того, что
+					в заголовке рядом с названием модуля будет пометка (free). Например, Attribut<b style="color: #2199C7;">&</b>co</span> v3.0.7 (free).</p>
+				<p>Ограничения бесплатной версии касаются физических изменений в Базе Данных.
+					Вы можете производить любые действия с <span class="node">Атрибутами</span> или <span class="node">Значениями</span> как и в платном модуле, но в Базе Данных изменения не произойдут. Т.е. после перезагрузки
+					страницы все станет как было. Бесплатная версия предназначена для изучения возможностей и понимания удобства работы с атрибутами, а так же для того чтобы убедиться, что модуль может работать на вашем OpenCart
+					магазине.</p>
+				<p>Вся терминология, все описания и характеристики не отличаются от платного аналога.</p>
+				<div class="callout callout-info">
+					<h4>Некоторые возможности</h4>
+					<p>Некоторые возможности все же сохранены в полном объеме. Например, drag-and-drop сортировка <span class="node">Групп</span> или <span class="node">Атрибутов</span>.</p>
+				</div>
+				<!-- License for free -->
+				<div class="callout callout-danger">
+					<h4>Лицензия обязятельна.</h4>
+					<d>Несмотря на то, что версия бесплатная, лицензию все же установить необходимо.</p <p>В комплект поставки модуля, отдельным архивом входит <code>License.zip</code>. В этом архиве и содержится файл лицензий.
+						Необходимо этот архив скачать, распаковать, содержимое папки <code>5.4/</code>
+						(или с вашей версией PHP) скопировать поверх структуры сайта.</p>
+						<p>Для бесплатной версии нет необходимости согласовывать названия доменов. </p>
+				</div>
+			</div>
+
+		</main>
+		<nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+			<ul class="side-nav">
+
+			</ul>
+		</nav>
+	</div>
+	<!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

@@ -1,0 +1,151 @@
+<?php
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'problems';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+
+<!-- Docs page layout -->
+<div class="container-fluid">	
+	<div class="row flex-xl-nowrap section">
+		<?php require "sidebar.html";?>
+		<main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+			<!-- problems -->
+			<div class="docs-section">
+				<div class="page-header">
+					<h1 id="problems">Проблемы и ошибки.</h1>
+				</div>
+				<h2 id="error-licence">Ошибки установки лицензии.</h2>
+				<div class="card">
+					<div class="card-header">
+						<small>Notice: Undefined variable: vendor in .....\www\admin\controller\module\attributico.php on line...</small>
+						<p>или</p>
+						<small>Fatal error: Call to a member function franchise() on a non-object in .../admin/controller/module/attributico.php on line...</small>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Ошибка возникает из-за отсутствия файла <code>/system/license/sllic.lic</code>. Возможно Вы не установили, или установили неправильно файл лицензии.</p>
+						<h5 class="card-title">Решение</h5>
+						<p class="card-text">Прочтите раздел документации <a href="license.html#license">Лицензия</a>. Переустановите лицензию в соответствии с документацией.</p>
+					</div>
+				</div>
+				<div class="card my-3">
+					<div class="card-header">
+						<small>This is not licensed copy of attributico</small>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Ошибка возникает из-за того, что название Вашего домена не согласовано с файлом лицензии.</p>
+						<h5 class="card-title">Решение</h5>
+						<p class="card-text">Прочтите раздел документации <a href="license.html#license">Лицензия</a>. Уточните название домена. Переустановите лицензию в соответствии с документацией.</p>
+					</div>
+				</div>
+				<h2 id="error-install">Ошибки установки модуля.</h2>
+				<div class="card">
+					<div class="card-header">
+						<small>Fatal error: Uncaught exception 'Exception' with message 'Error: Table '...oc_category_attribute' doesn't exist...</small>						
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Ошибка возникает из-за отсутствия в БД таблицы <code>category_attribute</code>. Возможно, Вы установили модификатор, но не активировали сам модуль.</p>
+						<h5 class="card-title">Решение</h5>
+						<p class="card-text">Прочтите раздел документации <a href="install.html#install-install">Установка</a>. Обратите внимание на пункт 2.</p>
+					</div>
+				</div>				
+				<h2 id="error-conflict">Конфликты с другими модулями.</h2>
+				<p>Если Вы используете несколько модулей, работающих с атрибутами, имейте в виду, что большинство из них, как и Attribut&amp;co, модифицируют форму редактирования
+					товара или "подставляют" свою страницу с формой. В этом случае все, что связано с интеграцией Attribut&amp;co в движок работать не будет и Вам остается пользоваться
+					только самим модулем, но и в этом случае корректная работа не гарантируется, т.к. возможны конфликты в Базе Данных.</p>
+				<p>Кроме того были выявлены проблемы совместимости с модулями, которые используют другие версии <code>jquery.ui</code>.
+					Например, <code>Admin_quick_edit_product_opencart1.5x.vqmod</code>. В последних версиях эта проблема решена.</p>
+				<h2 id="error-run-time">Ошибки времени выполнения.</h2>
+				<div class="card">
+					<div class="card-header">
+						<small>Load error! (SyntaxError: Unexpected token < in JSON at position 0)...</small> 
+					</div> 
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Вероятнее всего, что это ошибка структуры данных. Например, <code>attribute_id</code> в таблице <code>category_attribute</code> ссылается
+							на несуществующую запись в другой таблице БД.
+							Причин возникновения такой ошибки может быть много, большинство из них связаны с "ручным" редактированием атрибутов.
+						</p>
+						<h5 class="card-title">Решение</h5>
+						<p class="card-text">Иногда Вам придется вспомнить, что и где Вы редактировали и попробовать восстановить изменения до предыдущего рабочего состояния. Иногда такое "лечится"
+							пересохранением поврежденных пунктов, например, той категории, в которой возникла ошибка. А лучше иметь резервную копию Базы Данных.
+						</p>
+					</div>
+				</div>
+				<div class="callout callout-warning">
+					<h4>Совет.</h4>
+					<p>Если Вы уже купили Attribut&amp;co, то делайте через него все манипуляции с атрибутами. Это гораздо удобней "ручной" работы со стандартными формами OpenCart.
+						Это позволит избежать ошибок БД.</p>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						<small>PHP Notice: Undefined offset: 1 in ...\admin\controller\module\attributico.php on line ...</small>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Ошибка в коде модуля. Эта ошибка, скорее всего, отразится в журнале <mark><small>Система ⇒ Инструменты ⇒ Журнал ошибок</small></mark> и в консоли браузера.</p>
+						<h5 class="card-title">Решение</h5>
+						<p class="card-text">В таком случае, свяжитесь с разработчиком.</p>
+					</div>
+				</div>
+				<h2 id="error-server">Ошибки сервера.</h2>
+				<div class="card">
+					<div class="card-header">
+						<small>Load error! (Internal Server Error)</small>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">Такая ошибка иногда появляется на больших магазинах. Причина - прерывание сервером операции по тайм-ауту. Ошибка может возникнуть как при загрузке деревьев,
+							так и во время применения инструментов. Если простыми словами, то модулю не хватает отведенного времени и ресурсов сервера для выполнения операции.</p>
+						<p class="card-text">Иногда, при отключенном выводе ошибок в настройках сервера и PHP, так проявляется несоответствие версии Ioncube loader.</p>	
+						<h5 class="card-title">Решение</h5>	 
+						<p class="card-text">Часто это связано с ограничениями на хостинге. Ограничения в основном касаются работы MySQL и надо добиваться от хостера, 
+							чтоб настройки позволяли работать с вашим объемом данных. Есть еще настройки PHP, которые ограничивают время выполнения скриптов.
+							Попробуйте в .htaccess добавить <code>php_value max_execution_time 300</code>. Если хостер позволяет менять этот параметр, то, возможно, получится хоть как-то работать. 
+							Но настройки MySQL наиболее важны.</p>
+						<p class="card-text">Что можно сделать в таких случаях со стороны модуля? Самый "щадящий" режим это "Ленивая загрузка". Включите так же кэш. В настройках деревьев можно попробовать 
+							отключить один из дочерних узлов.</p>
+						<p class="card-text">Внимательно отнеситесь к выбору папки дистрибутива модуля <a href="included.html#whats-included">в архиве</a>.</p>
+					</div>
+				</div>
+				<h2 id="error-ocmod">Ошибки установки модификатора.</h2>
+				<div class="card">
+					<div class="card-header">
+						<small>Я ничего не делал, а у меня два пункта Attribut&co в меню...</small>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Причина</h5>
+						<p class="card-text">У вас установлено два модификатора. Один в папке <code>system/</code>, другой
+							установлен через <mark><small>Дополнения ⇒ Установка дополнений</small></mark>.</p>
+						<h5 class="card-title">Решение</h5>	 	
+						<p class="card-text">Внимательно прочтите пункт <a href="install.html#install">Установка/обновление</a>. Удалите лишний модификатор.</p>
+					</div>
+				</div>
+				<div class="callout callout-warning">
+					<h4>Редко, но бывает.</h4>
+					<p>Не закачивайте, пожалуйста через установщик дополнений модификаторы из папки <code>vqumod/xml/</code> если у Вас движок версии 2.x. Эти файлы толко для версий 1.5.x.
+						Ваши модификаторы находятся в папке <code>system/</code>.</p>
+				</div>
+			</div>
+		</main>
+		<nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+			<ul class="side-nav">				
+				<li class="nav-item"><a class="nav-link" href="#error-licence">Ошибки лицензии</a></li>
+				<li class="nav-item"><a class="nav-link" href="#error-install">Ошибки установки</a></li>
+				<li class="nav-item"><a class="nav-link" href="#error-conflict">Конфликты</a></li>
+				<li class="nav-item"><a class="nav-link" href="#error-run-time">Ошибки выполнения</a></li>
+				<li class="nav-item"><a class="nav-link" href="#error-server">Ошибки сервера</a></li>
+				<li class="nav-item"><a class="nav-link" href="#error-ocmod">Ошибки ocmod</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

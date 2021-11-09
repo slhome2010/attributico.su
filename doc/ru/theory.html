@@ -1,0 +1,365 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'theory';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+
+<!-- Docs page layout -->
+<div class="container-fluid">    
+    <div class="row flex-xl-nowrap section">
+        <?php require "sidebar.html";?>
+        <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <!-- theory -->
+            <div class="docs-section">
+                <div class="page-header">
+                    <h1 id="theory">Теория и терминология.</h1>
+                </div>
+                <h2 id="theory-theory">Немного теории.</h2>
+                <p>Что такое атрибуты и чем они отличаются от опций, Вы можете прочитать в интернете. Информации достаточно, например, <a
+                        href="http://docs.myopencart.com/index.php?title=%D0%90%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D1%8B" target="blanc">здесь</a>
+                    или <a href="http://bono-idea.com/blog/instrukciya-po-rabote-s-opciyami-i-atributami-v-OpenCart-2/" target="blanc">здесь</a>. Если коротко, то это характеристики, которые позволяют
+                    систематизировать товары, сравнивать товары, делать поиск или выборки с помощью фильтров.</p>
+                <p>В OpenCart принята следующая структура атрибутов:</p>
+                <div class="highlight">
+                    <pre><code>
+Группа атрибутов
+└── Атрибут        
+        </code></pre>
+                </div>
+                <p>Значение атрибута относится к конкретному товару:</p>
+                <div class="highlight">
+                    <pre><code>					
+Товар
+├── Ссылка на атрибут
+└── Значение атрибута
+        </code></pre>
+                </div>
+                <p>Так вот, все, перечисленные выше, задачи выполняются анализируя именно значения атрибутов. Т.е. если Вы добавите атрибут в товар, но не впишите его значение,
+                    то анализировать будет нечего.</p>
+                <p>Любой товар может иметь несколько атрибутов. Любой атрибут может иметь несколько значений. Значение атрибута это, на самом деле, текстовое поле, куда через разделитель
+                    можно вписать несколько значений.</p>
+                <p>Модуль Attribut&amp;co (визуально) приводит структуру атрибутов и значений к удобному виду и представляет эту структуру в виде дерева.</p>
+                <div class="highlight">
+                    <pre><code>
+Группа атрибутов
+└── Атрибут 
+└── Значение(список значений) атрибута
+          </code></pre>
+                </div>
+                <p>Понятие <mark><small>Группа атрибутов</small></mark> используется только для систематизации самих атрибутов. Товары же систематизируются по категориям. Поэтому, кажется
+                    логичным, сделать привязку определенного списка атрибутов с их значениями к определенной категории. Идея эта не нова и используется многими модулями, но именно эта идея
+                    лежит в основе работы данного модуля.</p>
+                <div class="highlight">
+                    <pre><code>
+Категория товаров
+└── Атрибут 
+└── Значение(список значений) атрибута
+          </code></pre>
+                </div>
+                <h2 id="theory-terms">Термины и определения.</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Термин</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="node">Разделитель атрибутов</th>
+                                <td>Точнее было бы название <span class="node">Разделитель значений атрибутов</span>. Повторимся, что у товара может быть несколько атрибутов и несколько значений
+                                    атрибутов. Значение записывается в поле типа <code>TEXT</code> в Базе Данных. Чтобы отделить одно значение от другого используется разделитель. Как правило это
+                                    <code>"/"</code> или <code>":"</code> или <code>";"</code> Современные фильтры, например filterpro, умеют разбирать такие конструкции.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Группа</th>
+                                <td>Группа <span class="node">Атрибутов</span> используется для систематизации самих <span class="node">Атрибутов</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Атрибут</th>
+                                <td>Собственно <span class="node">Атрибут</span> или характеристика товара.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Атрибут категории</th>
+                                <td><span class="node">Атрибут</span>, поставленный в соответствие какой-либо категории. <span class="node">Атрибут</span> может быть поставлен в сотответствие
+                                    нескольким категориям. Категория может иметь сопоставление с несколькими <span class="node">Атрибутами</span>. Т.е. когда мы говорим <span class="node">Атрибуты категории</span>, то
+                                    имеем ввиду список <span class="node">Атрибутов</span>, сопоставленных ("принадлежащих") категории.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Шаблон</th>
+                                <td>Набор <span class="node">Значений</span> <span class="node">Атрибута</span> через разделитель. Т.е. запись типа <code>Значение1/Значение2/Значение3</code></td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th class="node">Значение</th>
+                                <td>Одиночное значение <span class="node">Атрибута</span>, выделенное из <span class="node">Шаблона</span>. Часто <span class="node">Шаблон</span> состоит из единственного <span class="node">Значения</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="node">Дежурный шаблон</th>
+                                <td>Иначе можно назвать - шаблон по умолчанию. Это <span class="node">Шаблон</span>, который хранится "вместе" с <span class="node">Атрибутом</span>, содержит часто используемый набор <span
+                                        class="node">Значений</span>
+                                    и может быть автоматически "присвоен" товару в соответствии со <a href="settings.html#settings-product"><mark><small>способом</small></mark></a>, заданным в настройках.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Обозначение деревьев.</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-1">
+                            <col class="col-xs-1">
+                            <col class="col-xs-1">
+                            <col class="col-xs-4">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Вкладка</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Атрибуты</td>
+                                <th class="tree">Группы атрибутов</th>
+                                <td>Основное дерево, где можно производить все манипуляции с <span class="node">Группами</span>, <span class="node">Атрибутами</span> и <span class="node">Значениями</span> - редактирование, сортировку,
+                                    поиск,
+                                    удаление, добавление.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Дежурные шаблоны</td>
+                                <th class="tree">Дежурные шаблоны</th>
+                                <td>Дерево для работы с <a href="#theory-duty"><span class="node">Дежурными шаблонами</span></a>. Редактирование, поиск.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Атрибуты категорий</td>
+                                <th class="tree">Категории</th>
+                                <td>Структура категорий, показанная в виде дерева. </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Атрибуты категорий</td>
+                                <th class="tree">Атрибуты</th>
+                                <td>Дерево, аналогичное <span class="tree">Группы атрибутов</span>, служит для перетаскивания из него выбранного атрибута в нужную категорию с помощью технологии Drag-and-Drop либо копирования с помощью
+                                    Copy-Paste. Желательно в структуру включать дочерние <span class="node">Дежурные шаблоны</span>, чтобы напомнить, при добавлении <span class="node">Атрибута</span> в категорию, какие <span
+                                        class="node">Значения</span>
+                                    добавятся в товар.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Атрибуты категорий</td>
+                                <th class="tree">Атрибуты категорий</th>
+                                <td>Дерево, которое показывает категорию со всеми приписанными ей <span class="node">Атрибутами</span> и их <span class="node">Шаблонами</span> и <span class="node">Значениями</span>.
+                                    Здесь возможно добавить или удалить атрибуты.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Товары</td>
+                                <th class="tree">Атрибуты товаров</th>
+                                <td>Дерево, аналогичное <span class="tree">Группы атрибутов</span>, служит для выбора <span class="node">Атрибута</span>, <span class="node">Шаблона</span> или <span class="node">Значения</span> и
+                                    фильтрации товаров по
+                                    выбранному.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Товары</td>
+                                <th class="tree">Товары</th>
+                                <td>Дерево, где отображаются товары для выбранного <span class="node">Атрибута</span>, <span class="node">Шаблона</span> или <span class="node">Значения</span>. Справа от наименования товара, в скобках
+                                    выводится id товара
+                                    в БД и модель. Двойной клик по выбранному товару переадресует на карточку товара.</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Любая</td>
+                                <th class="tree">Узел</th>
+                                <td><span class="tree">Узел</span> это по сути элемент дерева. Любое дерево состоит из <span class="tree">Узлов</span>. <span class="tree">Узлы</span> отображаются в виде папок либо других значков. Могут
+                                    иметь текстовое название,
+                                    могут быть
+                                    пустыми.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul id="gallery_1" class="list-unstyled row">
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/tree1.png" title="Attribute group"><img src="/img/help/attributico/tree1.png" alt="Tree1" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/tree2.png" title="Duty templates"><img src="/img/help/attributico/tree2.png" alt="Tree2" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/tree3.png" title="Attribute category"><img src="/img/help/attributico/tree3.png" alt="Tree3" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/tree4.png" title="Products"><img src="/img/help/attributico/tree4.png" alt="Tree3" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                </ul>
+                <h2 id="theory-template">Шаблоны и значения.</h2>
+                <p>Чтобы лучше понимать, что такое <span class="node">Значение</span>, стоит напомнить, что это обычный текст, описывающий характеристику (<span class="node">Атрибут</span>)
+                    товара. <span class="node">Значение</span> записывается в поле типа <code>TEXT</code> в Базе Данных. Записать туда можно все, что угодно, например :
+                    <code>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."</code>.</p>
+                <p>Конечно, мы в это поле обычно пишем что-то более осмысленное, характеризующее именно наш товар. Более того, мы хотим, чтобы во всех товарах, содержащих это <span class="node">Значение</span>,
+                    оно было бы одинаковым и по этому <span class="node">Значению</span> можно было бы найти наши товары, например, с помощью фильтра.
+                </p>
+                <p>С точки зрения разработчиков Opencart, конструкция <mark><small>Товар->Атрибут->Значение</small></mark> является достаточной, но на практике этого маловато. Часто встречается
+                    конструкция <mark><small>Товар->Атрибут->Набор Значений</small></mark>.</p>
+                <p>Например, я продаю модули для Opencart и хочу показать, некоторые из нх совместимы с версиями <code>1.5.x</code>, <code>2.0.1</code>, <code>2.1.x</code>, а другие еще и с версиями
+                    <code>2.3.x</code>, <code>3.0.x</code>. Я так и напишу в <span class="node">Значения</span> <span class="node">Атрибута</span> <code>Совместимость</code> соответствующих товаров,
+                    перечислив версии через разделитель - запятую или, допустим, слэш. <code>v1.5.x/2.0.1/2.1.x</code> и <code>v1.5.x/2.0.1/2.1.x/2.3.x/3.0.x</code></p>
+                <p>Opencart никак не отработает такую конструкцию, просто выведет ее целиком в карточке товара. Но умные люди придумали умные фильтры, чтоб расширить возможности структуризации товаров
+                    и их поиска по <span class="node">Значениям</span>.</p>
+                <p>Ниже показано, как обрабатывает Opencart, Attribut&co, filterpro такие наборы <span class="node">Значений</span>. Я их назвал <span class="node">Шаблоны</span>. Не нравится это название?
+                    Зайдите в языковый файл и поставьте свое - "Наборы", "Списки" и т.д. Главное понимание, что это такое. </p>
+                <ul id="gallery_7" class="list-unstyled row">
+                    <li class="col-xs-6 col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/opencart.jpg" title="Product Attribute"><img src="/img/help/attributico/opencart.jpg" alt="Opencart" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/compatibility.jpg" title="Value and Template"><img src="/img/help/attributico/compatibility.jpg" alt="Values" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-3">
+                        <a class="lg-item" href="/img/help/attributico/filterpro.jpg" title="Filterpro"><img src="/img/help/attributico/filterpro.jpg" alt="Filterpro" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                </ul>
+                <p>Итак <span class="node">Шаблон</span> это набор <span class="node">Значений</span> <span class="node">Атрибута</span>, записанных через разделитель.</p>
+                <p><span class="node">Разделитель атрибутов</span> или <span class="node">Разделитель значений атрибутов</span> придумал не я. Вот как он выглядит в настройках популярных фильтров
+                    Mega Filter Pro и filterpro</p>
+                <ul id="gallery_8" class="list-unstyled row">
+                    <li class="col-xs-6 col-md-8">
+                        <a class="lg-item" href="/img/help/attributico/megafilter.jpg" title="Megafilter"><img src="/img/help/attributico/megafilter.jpg" alt="Megafilter" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-4">
+                        <a class="lg-item" href="/img/help/attributico/filterprosepar.jpg" title="Filterpro"><img src="/img/help/attributico/filterprosepar.jpg" alt="Filterpro" class="img-thumbnail img-responsive mrb15"></a>
+                    </li>
+                </ul>
+                <p>Необходимо отметить, что <span class="node">Значение</span> уникально для каждого товара. Если в каком-то товаре изменить одну букву в тексте, то остальных товаров это не коснется,
+                    даже если до этого <span class="node">Значения</span> совпадали, а у вас появится еще одно <span class="node">Значение</span>. То же самое верно и для <span class="node">Шаблонов</span>. </p>
+                <h2 id="theory-duty">Дежурный шаблон - значение по умолчанию.</h2>
+                <p>Естественным желанием является то, чтобы при добавлении <span class="node">Атрибута</span> в товар, синхронно добавлялось <span class="node">Значение</span> или
+                    набор <span class="node">Значений</span>. Особенно если <span class="node">Значения</span> одни и те же, а операций надо выполнить много.</p>
+                <p>Эти <span class="node">Значения</span> должны где-то храниться. Для этого и служит <span class="node">Дежурный Шаблон</span>. Именно там храняться <span class="node">Значения</span>,
+                    которые будут по умолчанию подставляться в товар, как только вы добавите туда <span class="node">Атрибут</span>.</p>
+                <p>Для того чтобы подстановка состоялась, надо не забывать про <a href="settings.html#settings-product">настройки</a>.</p>
+                <p><span class="node">Дежурный Шаблон</span> можно изменять многократно для подстановки других <span class="node">Значений</span> в другие товары не затрагивая уже имеющиеся.
+                    Для этого надо использовать настройку <code>Подставлять дежурный только в пустые</code>.</p>
+                <p><span class="node">Дежурный Шаблон</span> можно <a href="using.html#using-duty-del">удалять</a>.</p>
+                <h2 id="theory-product">Принцип фильтрации товаров.</h2>
+                <h4 class="mt-3">Режим совпадений.</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-1">
+                            <col class="col-xs-4">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Выбрано</th>
+                                <th>Соответствие товаров</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="node">Атрибут</th>
+                                <td>Все товары, где есть данный <span class="node">Атрибут</span>. Выборка происходит по id, а не по наименованию, поэтому, если в другой <span class="node">Группе</span> будет <span
+                                        class="node">Атрибут</span>
+                                    с таким же наименованием, товары, ему соответствующие, в выборку не попадут.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Шаблон</th>
+                                <td>Все товары, где есть родительский <span class="node">Атрибут</span> и поле, содержащее характеристики товара точно совпадает с выбранным <span class="node">Шаблоном</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Значение</th>
+                                <td>Все товары, где есть родительский <span class="node">Атрибут</span> и поле характеристик товара содержит выбранное <span class="node">Значение</span> . </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="lightgallery" href="/img/help/attributico/matches.jpg" title="Settings"><img src="/img/help/attributico/matches.jpg" alt="Settings" class="img-thumbnail img-responsive mrb15"></a>
+                <h4 class="mt-3">Режим расхождений.</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-1">
+                            <col class="col-xs-4">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Выбрано</th>
+                                <th>Соответствие товаров</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="node">Атрибут</th>
+                                <td>Все товары, где нет данного <span class="node">Атрибута</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Шаблон</th>
+                                <td>Все товары, где есть родительский <span class="node">Атрибут</span> и поле, содержащее характеристики товара точно не совпадает с выбранным <span class="node">Шаблоном</span>.</td>
+                            </tr>
+                            <tr>
+                                <th class="node">Значение</th>
+                                <td>Все товары, где есть родительский <span class="node">Атрибут</span> и поле характеристик товара не содержит выбранное <span class="node">Значение</span> . </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="lightgallery" href="/img/help/attributico/diver.jpg" title="Settings"><img src="/img/help/attributico/diver.jpg" alt="Settings" class="img-thumbnail img-responsive mrb15"></a>
+                <p>В режиме расхождений иконки папок в дереве товаров меняют цвет.</p>
+                <h2 id="theory-loading">Загрузка узлов.</h2>
+                <p>Медленная загрузка деревьев может свести на нет все усилия по облегчению работы с атрибутами. Поэтому, для дочерних узлов, таких как <span class="node">Шаблоны</span> и <span class="node">Значения</span>
+                    используется, так называемая, ленивая (lazy) загрузка. Эти узлы не загружаются в момент загрузки дерева, а подгружаются по мере обращения к ним, т.е. по запросу. Вот почему при двойном клике на узел
+                    <span class="node">Шаблоны</span> или <span class="node">Значения</span> прежде, чем откроется этот узел, приходится наблюдать индикатор загрузки <img src="/img/loading_ajax.gif" alt="loading">.</p>
+                <p>Такая загрузка узлов дает существеный выигрыш при загрузке деревьев и их перезагрузки во время синхронизации, но накладывает особенности на работу фильтра. Т.к. при выполнении
+                    поиска фильтру приходится делать обход всего дерева и принудительно открывать все узлы, то поиск, во-первых, происходит медленно, во-вторых, некорректно работает счетчик найденных совпадений.
+                    Однако если запустить поиск повторно, то все происходит быстро и считается правильно, т.к. все узлы уже открыты.</p>
+                <p>Для открытия узлов используются ajax-запросы, каждый из которых вносит задержку до 1 секунды. Испытания на большом количестве атрибутов показали, что часто происходит зависание.</p>
+                <p>Начиная с версии 2.1.4 появилась возможность управлять режимом загрузки. Либо в настройках, либо через <a href="using.html#using-context-menu">контекстное меню</a>, можно включить или отключить режим ленивой загрузки. Если этот
+                    режим отключен, все узлы дерева загружаются полностью. Отпадает необходимость делать обход дерева и догружать узлы, что многократно ускоряет поиск.</p>
+                <p>Таким образом, если предполагается активное использование поиска, то лучше перезагрузить деревья, отключив ленивую загрузку.</p>
+                <p>Поскольку загрузка узлов производится с помощью асинхронных ajax запросов, иногда в консоли можно увидеть сообщения типа:</p>
+                <div class="console"><small>FancytreeNode(#attribute_393, 'New attribute') scrollIntoView(): node is invisible</small></div>                
+                <p>Это означает, что данные ajax запроса не успели загрузиться до начала их использования. Особенно это проявляется на медленных серверах. Ничего страшного,
+                     на результаты работы модуля это не влияет.</p>
+                <h2 id="theory-synchro">Мультиязычность и синхронизация.</h2>
+                <p>Поскольку модуль является мультиязычным, то для каждого языка будут создаваться свои деревья. Для удобства к обозначениям деревьев будем прибавлять языковую приставку <span class="tree">.ru</span>
+                    или <span class="tree">.en</span> там, где это необходимо для объяснения. Для сохраниния целостности БД применяется синхронизация между деревьями. Например, при добавлении нового <span class="node">Атрибута</span> в
+                    <span class="tree">Группы атрибутов.ru</span>, в дерево <span class="tree">Группы атрибутов.en</span> синхронно добавится новый <span class="node">Атрибут</span> с названием "New attribute".
+                    То же самое касается <span class="node">Групп</span> атрибутов. А вот <span class="node">Шаблоны</span>, <span class="node">Значения</span> и <span class="node">Дежурные шаблоны</span> синхронно не добавляются.</p>
+                <p>Синхронизация происходит так же при редактировании <span class="node">Групп</span>, <span class="node">Атрибутов</span>, <span class="node">Шаблонов</span>, <span class="node">Значений</span>.
+                    Во всех деревьях, где присутствует изменяемый <span class="tree">Узел</span>, изменения происходят синхронно и в соответсвии с выбранным языком.</p>
+            </div>
+        </main>
+        <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+            <ul class="side-nav">
+                <li class="nav-item"><a class="nav-link" href="#theory-theory">Немного теории</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-terms">Термины и определения</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-template">Шаблоны и значения</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-duty">Дежурный шаблон</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-product">Фильтрация товаров</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-loading">Загрузка узлов</a></li>
+                <li class="nav-item"><a class="nav-link" href="#theory-synchro">Синхронизация</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

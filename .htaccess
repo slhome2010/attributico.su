@@ -1,0 +1,52 @@
+# 1.To use URL Alias you need to be running apache with mod_rewrite enabled.
+
+# 2. In your opencart directory rename htaccess.txt to .htaccess.
+
+# For any support issues please visit: http://www.opencart.com
+
+Options +FollowSymlinks
+
+# Prevent Directoy listing
+Options -Indexes -MultiViews
+
+# Prevent Direct Access to files
+<FilesMatch "(?i)((\.tpl|\.ini|\.log|(?<!robots)\.txt))">
+ Order deny,allow
+ Deny from all
+</FilesMatch>
+
+# чтобы страницы сайта (html сайта) обрабатывали PHP код
+RemoveHandler .html .htm
+# AddType application/x-httpd-php .html .htm
+AddType application/x-httpd-php .php .php3 .php4 .phtml .html
+#AddDefaultCharset UTF-8
+#CharsetDisable On
+#CharsetDefault UTF-8
+#CharsetSourceEnc UTF-8  
+
+# SEO URL Settings
+RewriteEngine On
+# If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/
+DirectoryIndex index.php
+
+RewriteBase /
+# RewriteCond %{REQUEST_URI} !.*\.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico|map|css.map)$
+RewriteCond %{REQUEST_URI} !\.(css|jpg|gif|png|zip|rar|doc|xls|js|tif|tiff|docx|xlsx|ico|map)$
+#RewriteRule ^doc/ru/([A-Za-z0-9]+)\.html$ index.php?page=$1&lang=ru [L,QSA]
+#RewriteRule ^doc/en/([A-Za-z0-9]+)\.html$ index.php?page=$1&lang=en [L,QSA]
+
+# если это не симлинк
+RewriteCond %{REQUEST_FILENAME} !-s
+# если нет такого файла
+RewriteCond %{REQUEST_FILENAME} !-f   
+# если нет такой папки  
+RewriteCond %{REQUEST_FILENAME} !-d     
+
+# RewriteRule ^([^?]*) index.php [L,QSA]
+# RewriteRule ^(.*)$ index.php?/$1 [L]
+# RewriteRule ^(.*)$ /index.php?page=%{REQUEST_URI} [L]
+# RewriteRule ^(.*)$ index.php?page=$1 [L,NC]
+# RewriteRule ^doc/ru(.*) index.php?route=$1 [L,NC]
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+#Redirect permanent /ru/doc_attributico_ru.html http://servenus.com/doc/attributico.html

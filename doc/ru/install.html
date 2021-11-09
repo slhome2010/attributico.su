@@ -1,0 +1,98 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'install';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+<!-- Docs page layout -->
+<div class="container-fluid">   
+    <div class="row flex-xl-nowrap section">
+        <?php require "sidebar.html";?>
+        <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <!-- install -->
+            <div class="docs-section">
+                <div class="page-header">
+                    <h1 id="install">Установка, обновление, удаление модуля.</h1>
+                </div>
+                <h2 id="install-install">Установка.</h2>
+                <p>1. Распакуйте архив. Откройте папку, соответствующую <a href="included.html#included-differences">вашей версии PHP</a>. Содержимое папки <code>upload.../</code>, 
+                      соответствующей вашей версии OpenCart, скопируйте поверх структуры папок сайта.</p>
+                <p>2. В административной панели в разделе <mark><small>Дополнения ⇒ Модули</small></mark> должен появиться модуль "Attribut&amp;co". Его необходимо установить. Кнопка
+                    <button type="button" class="btn btn-success" data-toggle="tooltip" title="Установить"><i class="fa fa-plus-circle"></i></button></p>
+                <p>3. В административной панели в разделе <mark><small>Система ⇒ Пользователи ⇒ Группы пользователей</small></mark> установите разрешения на просмотр и редактирование для
+                    <code>module/attributico</code> или <code>extension/module/attributico</code> для магазинов версии >2.2 .</p>
+                <p>4. Распакуйте архив <code>License.zip</code>. Содержимое папки, соответствующей вашей версии PHP скопируйте поверх структуры папок сайта.</p>
+                <p>5. В административной панели в разделе <mark><small>Дополнения ⇒ Установка дополнений</small></mark> загрузите файлы <code>attribut&co.2.x.ocmod.xml</code> и <code>autocomplete.ocmod.xml</code>
+                    для магазинов второй версии (2.x) или <code>attributico.3.x.ocmod.zip</code> для магазинов третьей версии (3.x) из папки <code>ocmod</code>.
+                    Для магазинов версии 1.5.x <code>(до версии 3.1.0)</code> скопируйте  папку <code>vqumod/</code> поверх структуры сайта. </p> 
+                    <p>Для тех, кто кто использует шаблон OCTEMPLATE, не выполняйте этот пункт. Описание установки модификаторов смотрите ниже.</p>
+                <p>6. В административной панели в разделе <mark><small>Дополнения ⇒ Менеджер дополнений</small></mark> необходимо обновить модификаторы. Кнопка <button type="button" class="btn btn-info" data-toggle="tooltip"
+                        title="Обновиить"><i class="fa fa-refresh"></i></button>&nbsp;&nbsp;</p>
+                <p>После этого должен появиться пункт меню <mark><small>Каталог ⇒ Атрибуты ⇒ Attribut&amp;co.</small></mark></p>
+                <div class="callout callout-danger">
+                    <h4>Внимание</h4>
+                    <p>Если до этого Вы уже использовали модуль более ранних версий и устанавливали модификаторы непосредственно в папку <code>system</code>, необходимо их оттуда удалить.</p>
+                    <p>Т.е. в папке <code>system</code> вашего сайта файлов <code>attribut&co.2.x.ocmod.xml</code> и <code>autocomplete.ocmod.xml</code> быть не должно.</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Обязательно</h4>
+                    <p>Очистите кэш магазина и браузера. Специфика очистки кэша для магазинов версии 3.x <a href="https://shopiweb.ru/opencart-3/kesh-opencart-3-ochistka-kesha/" target="blanc">описана, например, здесь</a>.</p>
+                </div>
+                <div class="callout callout-info">
+                    <h4>Некоторые особенности</h4>
+                    <p>В некоторых версиях перевода вместо слова <mark>Дополнения</mark> присутствует слово <mark>Расширения.</mark> А вместо <mark>Менеджер дополнений</mark> будет написано <mark>Модификаторы</mark></p>
+                    <p>Для магазинов на движке 1.5.x процедура установки та же кроме пункта 3. Обновление модификаторов не требуется. Вместо кнопок надо использовать ссылки с
+                        соответствующими названиями.</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Для тех, кто использует шаблон OCTEMPLATE!</h4>
+                    <p>OCTEMPLATE использует большое количество модификаторов, поэтому для установки модификатора модуля может не хватить ресурсов ocmod.</p>
+                    <p>Чтобы преодолеть это необходимо выполнить следующие действия:</p>
+                    <p>Не выполняйте пункт 5. из инструкции по установке. Для магазинов версии ниже 3.0.x файлы <code>attribut&co.2.x.ocmod.xml</code> и <code>autocomplete.ocmod.xml</code>
+                    необходимо скопировать непосредственно в папку <code>system</code> вашего сайта. Для магазинов версии 3.0.x необходимо из архива <code>attributico.3.x.ocmod.zip</code> 
+                    извлечь файл <code>install.xml</code>, переименовать его в <code>attributico.3.ocmod.xml</code> и после этого скопировать его в папку <code>system</code>.</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Возможные проблемы OpenCart 1.5.x <code>(устаревшее)</code></h4>
+                    <p>Данный модуль использует плагины <code>jQuery UI - v1.11.4+</code>. В OpenCart 1.5.x используется <code>jQuery UI - v1.8</code>.
+                        В процессе установки модуля эта версия будет заменена однозначно, иначе Attribut&amp;co работать не будет. В связи с этим может быть временно
+                        нарушена работоспособность некоторых сторонних модулей.
+                    </p>
+                </div>
+                <h2 id="install-update">Обновление.</h2>
+                <p>1. Обновление модуля не требует его удаления. После скачивания новой версии надо распаковать архив и содержимое папки <code>upload.../</code>, соответствующей вашей версии магазина из архива скопировать поверх
+                    структуры папок сайта.</p>
+                <p>2. Для магазинов версии 2.x и 3.x надо обязательно переустановить модификаторы <code>...ocmod.xml</code> или <code>...ocmod.zip</code> описанным выше способов, затем в административной панели в разделе
+                    <mark><small>Дополнения ⇒ Менеджер дополнений</small></mark>
+                    необходимо их обновить. <button type="button" class="btn btn-info" data-toggle="tooltip" title="Обновиить"><i class="fa fa-refresh"></i></button></p>
+                <p>3. Очистите <a href="https://shopiweb.ru/opencart-3/kesh-opencart-3-ochistka-kesha/" target="blanc">кэш магазина</a> и браузера.</p>
+                <p>4. Отредактируйте и сохраните заново настройки модуля.</p>
+                <h2 id="install-delete">Удаление.</h2>
+                <p>1. В административной панели в разделе <mark><small>Дополнения ⇒ Модули</small></mark> напротив модуля "Attribut&amp;co" - кнопка "Удалить". <button type="button" class="btn btn-danger" data-toggle="tooltip"
+                        title="Установить">
+                        <i class="fa fa-minus-circle"></i></button></p>
+                <p>2. Для магазинов версии 2.x из папки <code>/system</code> удалить файлы <code>attribut&amp;co.2.x.ocmod.xml, attribut&amp;co.2.3.ocmod.xml, attribut&amp;co.22.ocmod.xml, autocomplete.ocmod.xml</code>.
+                    Для магазинов версии 1.5.x <code>(до версии 3.1.0)</code> из папки <code>/vqmod/xml</code> удалить файлы <code>attribut&amp;co1_5_x.xml, autocomplete.xml</code></p>
+                <p class="lead">База данных.</p>
+                <p>В процессе установки модуля в базе данных будет создана таблица <mark><small>"category_attribute"</small></mark> с полями <code>`category_id` INTEGER(11) NOT NULL</code> и <code>`attribute_id` INTEGER(11) NOT
+                        NULL.</code></p>
+                <p>Начиная с версии 2.0.1 в стандартной таблице OpenCart <mark><small>"attribute_description"</small></mark> создается дополнительное поле <code>`duty` TEXT NOT NULL</code> 
+                    для хранения <a href="theory.html#theory-duty"><span class="node">Дежурных шаблонов</span></a>.</p>
+                <p><del>В процессе удаления модуля все вышеперечисленные таблицы и поля удаляются.</del></p>
+            </div>
+        </main>
+        <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+            <ul class="side-nav">
+                <li class="nav-item"><a class="nav-link" href="#install-install">Установка</a></li>
+                <li class="nav-item"><a class="nav-link" href="#install-update">Обновление</a></li>
+                <li class="nav-item"><a class="nav-link" href="#install-delete">Удаление</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

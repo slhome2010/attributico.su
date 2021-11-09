@@ -1,0 +1,188 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'faq';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+<!-- Docs page layout -->
+<div class="container-fluid">	
+	<div class="row flex-xl-nowrap section">
+		<?php require "sidebar.html";?>
+		<main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+			<!-- FAQs-->
+			<div class="docs-section">
+				<div class="page-header">
+					<h1 id="faq">FAQ.</h1>
+				</div>
+				<div class="accordion" id="accordionExample">
+					<div class="card">
+						<div class="card-header" id="heading1">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+									Переустановил лицензию. Все сделал по инструкции. Все-равно версия free...!
+								</button>								
+							</h5>							
+						</div>
+
+						<div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+							<div class="card-body">
+								<h5>Возможные причины:</h5>
+								<ul>
+									<li> Неверное название домена. domain.ru и www.domain.ru это разные домены.</li>
+									<li> Не скачали новый архив с лицензией, а установили из старого.</li>
+									<li> Неправильно перезаписали файл лицензии. Например, переименовали каталог с большой буквы.</li>
+									<li> Скачивать лицензию надо с того ресурса, где приобретали модуль. Ресурсы обновляются не синхронно.</li>
+								</ul>
+							</div>
+						</div>
+					</div><div class="card">
+						<div class="card-header" id="heading7">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+									Как сделать слияние значений атрибута?
+								</button>								
+							</h5>							
+						</div>
+
+						<div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+							<div class="card-body">
+								<p>Способов, аналогичных способам слияния атрибутов, с помошью технологий Drag-and-Drop, контекстного меню или командных клавиш, в модуле на предусмотрено. Во первых, чтоб не усложнять модуль, во вторых, потому, что точно такой же эффект может быть получен при обычном переименовании значений.</p>
+								<p>По сути слияние значений или шаблонов это и есть групповое переименование. Но этот механизм уже реализован. Просто отредактируйте Значение или Шаблон.</p>
+								<p>Более подробно о редактировании в разделе <a class="anchor" href="using.html#using-edit"> <mark><small>Редактирование</small></mark></a>.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header" id="heading2">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+									Какой алгоритм действий после парсинга?
+								</button>
+							</h5>
+						</div>
+
+						<div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+							<div class="card-body">
+								<p>Модуль не предполагает действий по определенному алгоритму, но он предлагает определенный функционал,
+									облегчающий ручную работу и набор инструментов, позволяющий выполнить некоторые действия в пакетном режиме. <br> 
+									Одним из таких инструментов является инструмент "Атрибуты категорий"
+								</p>
+								<p>По мере эксплуатации, стало понятно, что информации по этому инструменту недостаточно для понимания его работы. 
+									Пример, который будет приведен ниже является частным случаем применения инструмента,
+									но не алгоритмом. <br>
+									В настройках установим <mark><small>способ</small></mark> - <mark><small>Добавлять дежурный только в пустые</small></mark>.
+									Для других методов результат действия очевиден.
+								</p>
+								<a class="lightgallery" href="/img/help/attributico/method.jpg" title="Values update settings"><img src="/img/help/attributico/method.jpg" alt="Values update settings"
+										class="img-thumbnail img-responsive"></a>
+								<p class="text-center underpicture">Рисунок 1 – Настройки добавления значений в товар</p>
+								<p>Примем обозначения: <code>C</code>-категория, <code>P</code>-товар, <code>A</code>-атрибут, <code>V</code>-значение атрибута, <code>D</code>-дежурный шаблон</p>
+								<p>Допустим в категории <code>C1</code> есть товар <code>P1</code> с <span class="node">Атрибутом</span> <code>A1</code>,
+									принимающим <span class="node">Значение</span> <code>V1</code>.<br>
+									Вы добавили в этот товар <span class="node">Атрибут</span> <code>A2</code> со <span class="node">Значением</span> <code>V2</code> и после парсинга добавились еще два товара
+									<code>P2</code> и <code>P3</code> со своими <span class="node">Атрибутами</span> и соответствующими <span class="node">Значениями</span>.<br> 
+									Визуально такая ситуация отображена на диаграмме ниже.
+								</p>
+								<a class="lightgallery" href="/img/help/attributico/attribute category — 1.svg" title="Values update settings"><img src="/img/help/attributico/attribute category — 1.svg" alt="Values update settings"
+										class="img-thumbnail img-responsive"></a>
+								<p class="text-center underpicture">Диаграмма 1 – Работа с незаполненными Дежурными шаблонами</p>
+								<p>Наша цель - унификация Атрибутов категории, т.е. мы хотим, чтобы каждый товар категории <code>C1</code> имел одинаковый набор <span class="node">Атрибутов</span>.
+									Применим инструмент "Атрибуты категорий".
+									Результат видим на диаграмме. Теперь все товары имеют одинаковый набор <span class="node">Атрибутов</span>. А что же произошло со <span class="node">Значениями</span>?
+								</p>
+								<p> Некоторые из них оказались пустыми. Это произошло потому, что модуль "не знает", что подставлять. Действительно, <span class="node">Атрибут</span> <code>A1</code> 
+									может принимать <span class="node">Значения</span> <code>V1</code> или <code>V4</code>. Какое выбрать, чтоб подставить <span class="node">Атрибут</span> <code>A1</code>
+									в товар <code>P3</code>?<br>
+									Для того, чтобы устранить эту неоднозначность, существуют <span class="node">Дежурные шаблоны</span>. Иначе их можно назвать "Значения по умолчанию". 
+									Если вы не заполнили <span class="node">Дежурные шаблоны</span>, то
+									получите некоторое количество пустых <span class="node">Значений</span> как на первой диаграмме.<br>
+								</p>
+								<p> Если <span class="node">Дежурные шаблоны</span> заполнены, то результат работы инструмента будет такой, как на диаграмме ниже.
+								</p>
+								<a class="lightgallery" href="/img/help/attributico/attribute category — 2.svg" title="Values update settings"><img src="/img/help/attributico/attribute category — 2.svg" alt="Values update settings"
+										class="img-thumbnail img-responsive"></a>
+								<p class="text-center underpicture">Диаграмма 2 – Работа с заполненными Дежурными шаблонами</p>
+								<p>Как видите, теперь все хорошо. Пустые <span class="node">Значения</span> заполнены.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="heading3">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+									Я заинтересован в покупке модуля, не будет ли он конфликтовать с модулем DreamFilter?
+								</button>
+							</h5>
+						</div>
+
+						<div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+							<div class="card-body">
+								Ни с этим фильтром, ни с megaFilter, ни с каким другим фильтром модуль конфликтовать не может. Модуль не работает с фасадом, модуль не взаимодействует с фильтрами,
+								а только с базой данных, приводя в порядок атрибуты, которые позже используют фильтры.
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="heading4">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+									Я сейчас могу указать только тестовый можно будет дополнить домен позже?
+								</button>
+							</h5>
+						</div>
+
+						<div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+							<div class="card-body">
+								Можете. В любое время, если количество доменов и их характеристики не противоречат условиям выдачи <a href="license.html#license-validity">лицензии</a>.
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="heading5">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+									У меня перестал модуль работать. Переезжал на новый хостинг, может из-за этого!?
+								</button>
+							</h5>
+						</div>
+						<div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+							<div class="card-body">
+								Попробуйте очистить кэш магазина. Очистить кэш и куки браузера. Обновить модификаторы. Выставить заново и сохранить настройки.
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header" id="heading6">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+									Можно ли допилить модуль, чтоб атрибуты выводились на главной странице под фотографией товара?
+								</button>
+							</h5>
+						</div>
+						<div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
+							<div class="card-body">
+								Нет. Этот модуль разработан для админки и с фасадом не работает. То что вы хотите, давно реализовано не лучшим способом - подменой
+								содержимого описания товара на атрибуты с помощью модификаторов. Да и сомневаюсь, что кто-то работает на дефолтном шаблоне.
+								Так что этот вопрос надо задавать разработчикам шаблона (дизайна).
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+			<ul class="side-nav">
+
+			</ul>
+		</nav>
+	</div>
+	<!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

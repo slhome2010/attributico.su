@@ -1,0 +1,269 @@
+<?php 
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'settings';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+
+<!-- Docs page layout -->
+<div class="container-fluid">   
+    <div class="row flex-xl-nowrap section">
+        <?php require "sidebar.html";?>
+        <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <!-- settings -->
+            <div class="docs-section">
+                <div class="page-header">
+                    <h1 id="settings">Настройка модуля.</h1>
+                </div>
+                <p>Все настройки, включая настройки фильтра сохраняются при нажатии 
+                    <button type="button" class="btn btn-success" data-toggle="tooltip" title="Применить" data-placement="top"><i class="fa fa-check"></i></button>
+                    или
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" title="Сохранить" data-placement="top"><i class="fa fa-save"></i></button>                    
+                </p>
+                <p>Оперативные настройки сохраняются только на время работы модуля без перезагрузки страницы.</p>
+                <h2 id="settings-main">Общие настройки.</h2>
+                <a class="lightgallery" href="/img/help/attributico/settings.jpg" title="Settings"><img src="/img/help/attributico/settings.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Пункт</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="im">Разделитель атрибутов</th>
+                                <td>Применяется если товар может иметь несколько разных значений одного и того же атрибута. Более подробно прочтите в <a href="theory.html#theory-terms">Термины и определения</a>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Учитывать порядок сортировки</th>
+                                <td>При формировании деревьев будет учтен порядок сортировки, который установил пользователь. Если этот чекбокс не отмечен, будет сделана сортировка по алфавиту.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Смарт скроллинг</th>
+                                <td>Включает автопрокрутку узлов дерева внутри фиксированной видимой области. Удобно для больших магазинов при использовании Drag-and-Drop.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Показывать пустые значения</th>
+                                <td>Показывать или скрывать пустые значения атрибута или пустые шаблоны. О пустых значениях более подробно <a href="tools.html#tools-empty">Удалить пустые значения</a>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Товар в новом окне</th>
+                                <td>Открывать страницу (карточку) товара в новом окне. На вкладке <mark><small>Товары</small></mark> по двойному клику на выбранном товаре есть возможность переадресации на карточку товара.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Ленивая загрузка</th>
+                                <td>Управление режимом загрузки деревьев. Если режим включен, то, как и раньше, дочерние узлы подгружаются по запросу. Если отключен, дерево грузится полностью. Более подробно в разделе <a
+                                        href="theory.html#theory-loading">Загрузка узлов</a>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Кэш деревьев атрибутов</th>
+                                <td>Управление режимом загрузки деревьев. Если режим включен, то при построении дерева атрибутов на различных вкладках, данные будут получены не из базы данных, а из кэш файла, соответствующего данному
+                                    дереву.
+                                    Дополнительно: <a href="tools.html#tools-cache">Очистить кэш деревьев</a>.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Все магазины</th>
+                                <td>Управление списком категорий для мультимагазинов. Если режим включен, то в список категорий попадут категории всех магазинов, если отключен, то только категории магазина указанного в системных
+                                    настройках.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="callout callout-info">
+                    <h4>Изменить размеры скроллинга</h4>
+                    <p>Высоту области прокрутки можно изменить. Для этого в файле <code>/admin/view/stylesheet/attributico.css</code> надо изменить свойство <code>.smart-scroll {height: 250px;}</code>.</p>
+                </div>
+                <div class="callout callout-danger">
+                    <h4>Соблюдайте осторожность при открытии карточки товара в новом окне</h4>
+                    <p>Когда Вы вносите изменения в карточке товара, эти изменения происходят непосредственно в БД. Attribut&amp;co "подхватит" эти изменения только в момент загрузки модуля. Если Вы переключитесь обратно
+                        на страницу модуля без его перезагрузки, то Attribut&amp;co не будет "знать" о ваших изменениях. Продолжив работу с модулем, Вы рискуете нарушить целостность данных. Применяйте этот режим в крайних
+                        случаях, например, когда важно видеть всю панораму <span class="node">Атрибутов</span>. В большинстве случаев достаточно ориентироваться на информационный баннер, где отражаются параметры <span
+                            class="node">Атрибута</span>
+                        и <span class="node">Группы</span> с которыми осуществлена переадресация на карточку товара.</p>
+                </div>
+                <h2 id="settings-tree">Настройки деревьев.</h2>
+                <a class="lightgallery" href="/img/help/attributico/tree_settings.jpg" title="Settings"><img src="/img/help/attributico/tree_settings.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <p>Теперь есть возможность для каждого дерева сделать настройку дочерних узлов <span class="node">Атрибута</span>. Отметка чекбокса узла в делает его видимым в соответствующем дереве.
+                    Обозначение деревьев можно посмотреть в разделе <a href="theory.html#theory-terms">Термины и определения</a>.</p>
+                <h2 id="settings-category">Добавление/удаление атрибутов категории.</h2>
+                <a class="lightgallery" href="/img/help/attributico/category_attribute_settings.jpg" title="Settings"><img src="/img/help/attributico/category_attribute_settings.jpg" alt="Settings"
+                        class="img-thumbnail img-responsive mb-3"></a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Пункт</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="im">Добавлять атрибут категории в товары</th>
+                                <td>При добавлении нового <span class="node">Атрибута</span> в категорию, он будет автоматически добавлен во все товары этой категории. <span class="node">Значения</span> атрибута
+                                    во всех товарах этой категории будут заполнены в соответствии с разделом "Добавление значений атрибута в товар".</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Удалять атрибут категории из товаров</th>
+                                <td>При удалении <span class="node">Атрибута</span> из категории, он будет автоматически удален из всех товаров этой категории.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 id="settings-inherit">Наследование.</h2>
+                <a class="lightgallery" href="/img/help/attributico/inherit_settings.jpg" title="Settings"><img src="/img/help/attributico/inherit_settings.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Пункт</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="im">Добавлять во все подкатегории</th>
+                                <td>При добавлении нового <span class="node">Атрибута</span> в категорию, он будет рекурсивно добавлен во все дочерние категории (подкатегории).
+                                    <span class="node">Значения</span> атрибута во всех товарах этих подкатегорий будут заполнены в соответствии с разделом "Добавление значений атрибута в товар".</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Удалять из всех подкатегорий</th>
+                                <td>При удалении <span class="node">Атрибута</span> из категории, он будет рекурсивно удален из всех подкатегорий а <span class="node">Значения</span> из всех товаров этих подкатегорий.</td>
+                            </tr>
+                            <tr>
+                                <th class="im">Автовыбор подкатегорий с учетом иерархии</th>
+                                <td>Рекурсивный выбор всех дочерних подкатегорий отмеченной категории. Если отмечены все дочерние категории, родительская отмечается автоматически.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Алгоритм наследования требует некоторых пояснений. Первые два пункта настроек обеспечивают недостаточно гибкий алгоритм. Что делать, если не во все подкатегории требуется добавлять тот или иной атрибут?
+                    Начиная с версии 2.1.0 появилась возможность отметить целевые подкатегории с помощью чекбоксов. Пока ничего не отмечено - действуют правила рекурсивного добавления/удаления
+                    (если отмечены первые два пункта). Если отмечена хотя бы одна категория - действие рекурсии отменяется. Т.е. отменяется действие первых двух пунктов. Все действия будут производится только с отмеченными категориями.
+                </p>
+                <p>Впрочем, теперь даже без первых двух пунктов можно рекурсивно отметить все подкатегории кликнув на чекбокс родительской категории. Для этого пункт
+                    <span class="im">Автовыбор подкатегорий с учетом иерархии</span> должен быть отмечен (включен).</p>
+                <div class="callout callout-warning">
+                    <h4>Обратите внимание</h4>
+                    <p>При включенном режиме иерархии действует и обратное правило - при выборе всех дочерних, родительская выбирается автоматически. Или - при отмене хотя бы одной дочерней,
+                        родительская автоматически отменяется.</p>
+                </div>
+                <p>Учитывая сказанное выше, если не нужна рекурсия, если не нужна иерархия, а нужен произвольный набор категорий, то режим <span class="im">Автовыбор подкатегорий с учетом иерархии</span>
+                    надо отключить. Для оперативного управления этим режимом в дереве <span class="tree">Категории</span> в контекстном меню, <span class="im">Настройки</span> есть пункт <span class="im">Учитывать иерархию</span>.</p>
+                <ul id="gallery_0" class="list-unstyled row">
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/hier_category.jpg" title="Hierarchical multi-selection"><img src="/img/help/attributico/hier_category.jpg" alt="Tree1" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                    <li class="col-md-6">
+                        <a class="lg-item" href="/img/help/attributico/hier_operative.jpg" title="Hierarchical operate"><img src="/img/help/attributico/hier_operative.jpg" alt="Tree2" class="img-thumbnail img-responsive mb-3"></a>
+                    </li>
+                </ul>
+                <div class="callout callout-warning">
+                    <h4>Очень важно</h4>
+                    <p>Действия всегда выполняются по отношению к целевой категории независимо от того, отмечена она или нет. Целевая - это та категория, куда вы
+                        перетаскиваете атрибут с помощью Drag-and-Drop или Copy-Paste, которая в результате откроется в дереве справа со всеми своими <span class="node">Атрибутами категории</span>.</p>
+                </div>
+                <h2 id="settings-product">Добавление значений атрибута в товар.</h2>
+                <a class="lightgallery" href="/img/help/attributico/product_settings.jpg" title="Settings"><img src="/img/help/attributico/product_settings.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <colgroup>
+                            <col class="col-xs-2">
+                            <col class="col-xs-6">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Пункт</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="im">Значения атрибутов</th>
+                                <td>Этот пункт задает <mark><small>способ</small></mark> действий со <span class="node">Значениями</span> атрибута в момент добавления <span class="node">Атрибута</span> в категорию.</td>
+                            </tr>
+                            <tr>
+                                <th><code>Очищать</code></th>
+                                <td> При добавлении <span class="node">Атрибута</span> в категорию, <span class="node">Значения</span> атрибута будут очищены.</td>
+                            </tr>
+                            <tr>
+                                <th><code>Не менять</code></th>
+                                <td>При добавлении <span class="node">Атрибута</span> в категорию, <span class="node">Значения атрибута</span>, если они уже есть в товарах, останутся без изменений.</td>
+                            </tr>
+                            <tr>
+                                <th><code>Заменять дежурным</code></th>
+                                <td> При добавлении <span class="node">Атрибута</span> в категорию, <span class="node">Значения</span> атрибута в товарах этой категории, будут заменены <a href="theory.html#theory-duty"><span class="node">Дежурным
+                                            шаблоном</span></a>, если
+                                    сам этот шаблон не пустой.</td>
+                            </tr>
+                            <tr>
+                                <th><code>Только в пустые</code></th>
+                                <td>При добавлении <span class="node">Атрибута</span> в категорию, пустые <span class="node">Значения</span> атрибута в товарах этой категории, будут заменены <a href="theory.html#theory-duty"><span
+                                            class="node">Дежурным шаблоном</span></a>,
+                                    если сам этот шаблон не пустой, непустые <span class="node">Значения</span> атрибута останутся без изменений.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="callout callout-info">
+                    <h4>Ручной ввод.</h4>
+                    <p>По точно такому же <mark><small>способу</small></mark>, значения атрибутов будут изменяться при "ручном" редактировании карточки товара. Например, отметка
+                        пункта "Показывать в категории" на вкладке <mark><small>Связи</small></mark> приведет к добавлению в этот товар всех атрибутов данной категории, а в поле <span class="node">Значение</span> в колонке "Текст"
+                        подставится
+                        <a href="theory.html#theory-duty"><span class="node">Дежурный шаблон</span></a>.</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Внимание!</h4>
+                    <p>При отключенном пункте <span class="im">Добавлять атрибут категории в товары</span>, настройки <span class="im">Добавление значений атрибута в товар</span> не активируются.</p>
+                </div>
+                <h2 id="settings-replace">Редактирование значений.</h2>
+                <p>Эта настройка определяет алгоритм обновления <span class="node">Значений</span> после их редактирования.</p>
+                <a class="lightgallery" href="/img/help/attributico/replacemode.jpg" title="Settings"><img src="/img/help/attributico/replacemode.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <p>Сохранение или обновление <span class="node">Значений</span> происходит в момент закрытия однострочного редактора если не было отмены клавишей <kbd>[Esc]</kbd>. В этот момент происходит поиск редактируемого образца среди всех <span class="node">Значений</span> данного <span class="node">Атрибута</span> и замена его на новое, отредактированное, состояние.</p>
+                <p>Стандартом является поиск и замена всех вхождений редактируемого образца (подстроки) в <span class="node">Значение</span> (строку)</p>
+                <p>Например, есть такие записи (<code>MP4/AVI, MP4-MPEG4/MP4-MPG/VOB, MP4/AVI/MKV, MP4/AVI/MKV/VOB</code>). После замены, например,   <code>MP4</code> на <code>MP3</code> произойдет следующее (<code>MP3/AVI, MP3-MPEG4/MP3-MPG/VOB, MP3/AVI/MKV, MP3/AVI/MKV/VOB</code>), т.е. все вхождения образца <code>MP4</code> обновились на <code>MP3</code>.</p>
+                <p>Теперь рассмотрим пример, где такое обновление нас не устроит. Допустим, некоторый <span class="node">Атрибут</span> имеет набор <span class="node">Значений</span> (<span class="node">Шаблонов</span>) (<code>50, 50-100, 50/500/500-5000, 500</code>). 
+                После замены <code>50</code> на <code>50гр</code> получим неожиданный результат (<code>50гр, 50гр-100, 50гр/50гр0/50гр0-50гр00, 50гр0</code>).</p>
+                <p>Несмотря на то, что это частный случай, можно его учесть. Для этого надо включить настройку "<span class="im">По точному совпадению</span>". В этом режиме результат редактирования будет правильным (<code>50гр, 50-100, 50гр/500/500-5000, 500</code>).</p> 
+                <div class="callout callout-info">
+                    <h4>Разница редактирования <span class="node">Шаблонов</span> и <span class="node">Значений</span></h4>
+                    <p>Описанная выше настройка касается редактирования <span class="node">Значений</span>.</p>
+                    <p>Обновление <span class="node">Шаблона</span> всегда делается по точному совпадению редактируемого образца и всего <span class="node">Шаблона</span> целиком.</p>
+                </div>
+                <h2 id="settings-dialog">Оперативное изменение настроек.</h2>
+                <p>Некоторые настройки можно изменять оперативно, в процессе работы. По окончании работы они не сохраняются.</p>
+                <p>Если в <a href="using.html#using-context-menu">контекстном меню</a> выбрать пункт "Настройки", то появится <a href="using.html#using-dialog">диалоговое окно</a> управления деревом.</p>
+            </div>
+        </main>
+        <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+            <ul class="side-nav">
+                <li class="nav-item"><a class="nav-link" href="#settings-main">Общие настройки</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-tree">Настройки деревьев</a></l>
+                <li class="nav-item"><a class="nav-link" href="#settings-category">Атрибуты категории</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-inherit">Наследование</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-product">Добавление в товар</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-replace">Редактирование значений</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-dialog">Оперативная настройка</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>

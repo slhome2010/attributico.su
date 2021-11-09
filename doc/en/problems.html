@@ -1,0 +1,29 @@
+<?php
+    $doc = 'Attributico';
+    $title = 'Attribut&amp;co doc page';
+    $description = 'Attribut&nbsp;co lets you to create, rename, delete, products attributes for your OpenCart administration.';
+	$keywords = 'opencart, attribute';
+	$active_page = 'problems';
+	require "../../common/header.php";
+	require "../../common/navbar.html";
+?>
+
+<!-- Docs page layout -->
+<div class="container-fluid">	
+	<div class="row flex-xl-nowrap section">
+		<?php require "sidebar.html";?>
+		<main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+			
+					<div class="alert alert-warning" role="alert"><?php echo $alert_nofound;?></div>
+				
+		</main>
+		<nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
+			<ul class="side-nav">
+				
+			</ul>
+		</nav>
+	</div>
+	<!-- </section> -->
+</div>
+<!-- Footer -->
+<?php require "../../common/footer.php"; ?>
