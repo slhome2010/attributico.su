@@ -40,7 +40,7 @@ if (basename($_SERVER["PHP_SELF"]) === "download.html") {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/sldocs.css" />
-    <link type="text/css" rel="stylesheet" href="/css/lightgallery.css" />
+    <link type="text/css" rel="stylesheet" href="/css/hes-gallery.css" />
 </head>
 
 <body data-spy="scroll" data-target="#navbar-top" data-offset="50">

@@ -42,6 +42,31 @@ $(document).ready(function () {
         });
     }
 
+    HesGallery.setOptions({
+
+        // disable scrolling when the popup is activated
+        disableScrolling: false,
+      
+        // self-hosted styles
+        hostedStyles: false,
+      
+        // enable/disable animation
+        animations: true,
+      
+        // enable/disable keyboard navigation
+        keyboardControl: true,
+      
+        // disable the plugin when the screen size is smaller than this value
+        minResolution: 0,
+      
+        // enable/disable infinite loop
+        wrapAround: false,
+      
+        // show/hide image count
+        showImageCount: true
+      
+      });
+
    // $('#videos').lightGallery();
    // $('#videos-without-poster').lightGallery();
   //  $('#video-player-param').lightGallery({
@@ -63,9 +88,9 @@ $(document).ready(function () {
 			var $spy = $(this).scrollspy('refresh')		
 	});
 	
-	$("a.lightgallery").lightGallery({selector: 'this'});	
-	$('[id ^= "example"]').lightGallery({selector: '.lg-item'}); 
-	$('[id ^= "gallery"]').lightGallery({selector: '.lg-item'}); 
+	/* $("a.lightgallery").lightGallery({selector: 'this'});	 */
+	/* $('[id ^= "example"]').lightGallery({selector: '.lg-item'}); 
+	$('[id ^= "gallery"]').lightGallery({selector: '.lg-item'});  */
 
 	// maps
 	//initmap();
