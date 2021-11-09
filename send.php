@@ -3,7 +3,7 @@ $yourname = $_POST['yourname'];
 $yourmessage = $_POST['yourmessage'];
 $youremail = $_POST['youremail'];
 
-$to = 'support@servenus.com';
+$to = 'support@attributico.su';
 $subject = 'Callback by Attribut&co';
 $message = '
                 <html>

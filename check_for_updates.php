@@ -1,9 +1,9 @@
 <?php
 
 $responce = array(
-	'lastversion' => 'v3.1.8',
+	'lastversion' => 'v3.1.9',
 	'news' => '<h4>Есть обновления!</h4> 
-				<p class="lead">Версия 3.1.8.</p>
+				<p class="lead">Версия 3.1.9.</p>
 				<ul>
 				<li>Усовершенствован алгоритм дефрагментации;</li>
 				<li>Усовершенствована работа фильтра значений в карточке товара;</li>
@@ -15,11 +15,11 @@ $responce = array(
 					<ul class="list-group">											
 						<li class="list-group-item"><a class="link" target="_blanc" href="https://opencartforum.com/files/file/3213-attributco-opencart-atributy-eto-legko/"><span class="txt_orange">Opencartforum.com</span></a></li>								   
 						<li class="list-group-item"><a class="link" target="_blanc" href="https://liveopencart.ru/opencart-moduli-shablony/moduli/filtryi/attribut-co-opencart-atributyi-eto-legko"><span class="txt_orange">Liveopencart.ru</span></a></li>								  
-						<li class="list-group-item"><a class="link" target="_blanc" href="http://servenus.com/common/download.html"><span class="txt_orange">Servenus.com</span></a> (Архив версий)</li>
+						<li class="list-group-item"><a class="link" target="_blanc" href="http://attributico.su/common/download.html"><span class="txt_orange">attributico.su</span></a> (Архив версий)</li>
 					</ul>								
 				</div>',
-	'copyright' => '<strong>Документация:</strong> <a href="http://servenus.com/doc/ru/attributico.html">http://servenus.com/doc/ru/attributico.html</a><br/>
-					<p>Copyright &copy; 2016-2021&nbsp; Servenus</p>',
+	'copyright' => '<strong>Документация:</strong> <a href="http://attributico.su/doc/ru/attributico.html">http://attributico.su/doc/ru/attributico.html</a><br/>
+					<p>Copyright &copy; 2016-2021&nbsp; Comtronics</p>',
 );
 
 echo json_encode($responce);
