@@ -18,7 +18,7 @@ function initmap() {
 $(document).ready(function () {
 
     //thumbnails without animation
-    var $thumb = $('#thumbnials');
+   /*  var $thumb = $('#thumbnials');
     if ($thumb.length) {
         $thumb.justifiedGallery({
             border: 6,
@@ -41,7 +41,7 @@ $(document).ready(function () {
             });
         });
     }
-
+ */
     HesGallery.setOptions({
 
         // disable scrolling when the popup is activated

@@ -49,7 +49,7 @@
                     <li>Вставка <span class="node">Атрибутов</span> с их <span class="node">Значениями</span> в момент привязки или перепривязки товара к категории на вкладке <mark><small>Связи</small></mark>;</li>                    
                 </ul>
                 <h2 id="integro-list">Управление видом списка.</h2>
-                <div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view" class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div>        
+                <div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view1" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view1" class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div>        
                         <p>В зависимости от того, какая кнопка нажата, в поле выбора будут выводиться либо <span class="node">Шаблоны</span> либо <span class="node">Значения</span>.</p>
                 <div class="callout callout-info">
                     <h4>Новый шаблон.</h4>
@@ -68,13 +68,13 @@
                 <p>Если отмечен пункт "Все", то в список попадут все <span class="node">Значения</span> данного <span class="node">Атрибута</span> для всех товаров, плюс <span class="node">Дежурный шаблон</span>.</p>
                 <div>
                     <label class="radio-inline">
-                        <input type="radio" name="filter-values" id="filter-nofilter" value="all" checked> Все
+                        <input type="radio" name="filter-values" id="filter-nofilter1" value="all" checked> Все
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="filter-values" id="filter-category" value="categories"> Категории
+                        <input type="radio" name="filter-values" id="filter-category1" value="categories"> Категории
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="filter-values" id="filter-duty" value="duty"> Дежурные
+                        <input type="radio" name="filter-values" id="filter-duty1" value="duty"> Дежурные
                     </label>
                     <label class="radio-inline"></label>
                 </div>
@@ -112,29 +112,50 @@
                     <p>Если необходимо добавить <span class="node">Атрибуты категории</span> во все товары какой либо категории, то можно воспользоваться инструментом <a class="anchor" href="tools.html#tools-category"><mark><small>Атрибуты категорий</small></mark></a>.</p>
                 </div>
                 <p>Скриншоты ниже иллюстрируют интеграцию. Можно обратиться так же к разделу <a class="anchor" href="example.html#using-example">Примеры</a>.</p>
-                <ul id="gallery_2" class="list-unstyled row">
+                <ul id="gallery_integro_2" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="6">
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/integro1.jpg" title="Integration OpenCart 2.x"><img src="/img/help/attributico/integro1.jpg" alt="Integro1" class="img-thumbnail img-responsive mrb15"></a>
+                        <img src="/img/help/attributico/integro1.jpg" 
+                            alt="Integration OpenCart 2.x" 
+                            data-subtext="Integration OpenCart 2.x"  
+                            data-alt="Integration OpenCart 2.x"
+                            class="img-thumbnail img-responsive mrb15">
                     </li>
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/attach_button.jpg" title="Attach attributes by one click"><img src="/img/help/attributico/attach_button.jpg" alt="Integro15" class="img-thumbnail img-responsive mrb15"></a>
+                        <img src="/img/help/attributico/attach_button.jpg" 
+                            alt="Attach attributes by one click" 
+                            data-subtext="Attach attributes by one click"  
+                            data-alt="Attach attributes by one click"
+                            class="img-thumbnail img-responsive mrb15">                        
                     </li>
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/integro2.png" title="Integration OpenCart - links"><img src="/img/help/attributico/integro2.png" alt="Integro2" class="img-thumbnail img-responsive mrb15"></a>
-                    </li>
-                    <div class="clearfix"></div>
+                        <img src="/img/help/attributico/integro2.png" 
+                            alt="Integration OpenCart - links" 
+                            data-subtext="Integration OpenCart - links"  
+                            data-alt="Integration OpenCart - links"
+                            class="img-thumbnail img-responsive mrb15">                        
+                    </li> 
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/integro22.png" title="Integration OpenCart 2.2.x"><img src="/img/help/attributico/integro22.png" alt="Integro22" class="img-thumbnail img-responsive mrb15"></a>
-                    </li>
+                        <img src="/img/help/attributico/integro22.png" 
+                            alt="Integration OpenCart 2.2.x" 
+                            data-subtext="Integration OpenCart 2.2.x"  
+                            data-alt="Integration OpenCart 2.2.x"
+                            class="img-thumbnail img-responsive mrb15">                        
+                    </li> 
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/integro_category.png" title="Integration OpenCart - category"><img src="/img/help/attributico/integro_category.png" alt="Integro_category"
-                                class="img-thumbnail img-responsive mrb15"></a>
-                    </li>
+                        <img src="/img/help/attributico/integro_category.png" 
+                            alt="Integration OpenCart - category" 
+                            data-subtext="Integration OpenCart - category"  
+                            data-alt="Integration OpenCart - category"
+                            class="img-thumbnail img-responsive mrb15">                        
+                    </li> 
                     <li class="col-xs-6 col-md-4">
-                        <a class="lg-item" href="/img/help/attributico/remove_category.jpg" title="Integration OpenCart - remove category"><img src="/img/help/attributico/remove_category.jpg" alt="Remove category.jpg"
-                                class="img-thumbnail img-responsive mrb15"></a>
-                    </li>
-                </ul>
+                        <img src="/img/help/attributico/remove_category.jpg" 
+                            alt="Integration OpenCart - remove category" 
+                            data-subtext="Integration OpenCart - remove category"  
+                            data-alt="Integration OpenCart - remove category"
+                            class="img-thumbnail img-responsive mrb15">                        
+                    </li>                    
+                </ul>                
             </div>
         </main>
         <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">

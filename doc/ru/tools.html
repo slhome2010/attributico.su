@@ -24,7 +24,7 @@
                 </div>
                 <h2 id="tools-filter">Блок фильтра.</h2>
                 <p>В этой и последующих версиях фильтр вынесен в отдельный общий для всех инструментов блок.</p>
-                <div id="gallery_tools_1" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="1">                    
+                <div class="hes-gallery" data-wrap="true" data-img-count="1">                    
                     <img src="/img/help/attributico/Tools filter.jpg" 
                     alt="Tools filter" 
                     data-subtext="Tools filter open"  
@@ -285,19 +285,10 @@
                                 (Если не появилась иконка, то надо очистить кэш браузера).</p>
                             <p>Как быть если после дефрагментации появилвсь <span class="node">Группа парсинга</span> и она уже занята и содержит <span class="node">Атрибуты</span>, а для парсинга или загрузки
                                 прайс-листа надо ее очистить? Ничего сложного. Надо создать новую одноименную группу, и с помощью Drag-and-drop технологии перетащить туда все атрибуты, а саму <span class="node">Группу парсинга</span>
-                                переименовать. Для лучшего понимания - следующие видео:</p>
+                                переименовать. Для лучшего понимания - следующие видео:</p>                            
                             <div id="example-tools">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a class="lg-item" href="https://youtu.be/8OcO_4L7iBU">
-                                            <img class="media-object" src="/img/video-play.png" alt="...">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Подготовка группы парсинга</h4>
-                                        <p>Дефрагментация <span class="node">Групп</span> и <span class="node">Атрибутов</span>. Подготовка <span class="node">Группы парсинга</span>.</p>
-                                    </div>
-                                </div>
+                                <h4 class="media-heading">Дефрагментация и подготовка группы парсинга</h4>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/8OcO_4L7iBU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <h2 id="tools-sorting">Сортировка атрибутов.</h2>
                             <p>Этот инструмент делает сортировку атрибутов с привязкой к сортировке групп и приводит спиок атрибутов к виду, как на изображении ниже.</p>
@@ -444,7 +435,12 @@
                             <p>Инструмент позволяет в пакетном режиме сменить регистр первой буквы в названии <span class="node">Грппы</span>, <span class="node">Атрибута</span>, <span class="node">Значения</span> или <span class="node">Дежурного шаблона</span></p> 
                             <p>В случае множественного <span class="node">Значения</span> или <span class="node">Дежурного шаблона</span> меняется регистр первой буквы каждого слова, записанного через разделитель. Т.е. инструмент "умеет" разбирать конструкции типа: <code>Китай/россия/бразилия/Казахстан</code></p>
                             <p>Для данного инструмента использование фильтра не является обязательным. Если ничего не будет отмечено, то поиск и замена будет производиться по всей БД. Использование фильтра позволит сузить поиск, а значит сократить время работы инструмента или проделать эту задачу поэтапно, что важно для больших магазинов. Фильтр по категориям работает только для <span class="node">Значений</span>.</p>
-                            <p>Чтобы активизировать работу инструмента для <span class="node">Групп</span> или других узлов отметьте чекбокс напротив, после чего станет доступным выбор регистра - с большой буквы или с маленькой.</p>                            
+                            <p>Чтобы активизировать работу инструмента для <span class="node">Групп</span> или других узлов отметьте чекбокс напротив, после чего станет доступным выбор регистра - с большой буквы или с маленькой.</p> 
+                            <div class="callout callout-warning">
+                                <h4>Дополнение.</h4>
+                                <p>В процессе применения инструмента к <span class="node">Значениям</span> или <span class="node">Дежурным шаблонам</span> будут удалены лишние пробелы вокруг разделителя.</p>
+                                <p>Например: <code>Украина/ россия /китай/ Бразилия</code> будет заменено на <code>Украина/Россия/Китай/Бразилия</code></p>
+                            </div>                           
                             <div class="hes-gallery" data-wrap="true" data-img-count="1">
                                 <img src="/img/help/attributico/Case change.jpg" 
                                     alt="Case" 

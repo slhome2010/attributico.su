@@ -179,31 +179,53 @@
                 <p>Необходимо у всех товаров удалить <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> если он принимает <span class="node">Значение</span> <code>тестовое значение 3.2.1</code></p>
                 <p>Если бы мы делали это вручную, то нам пришлось бы открывать каждый товар, просматривать список <span class="node">Атрибутов</span> и <span class="node">Значений</span> и нажимть кнопку
                     <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Удалить"><i class="fa fa-minus-circle"></i></button> если значение совпало с <code>тестовое значение 3.2.1</code></p>
-                <ul id="gallery_5" class="list-unstyled row">
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/product1.jpg" title="Hierarchical multi-selection"><img src="/img/help/attributico/product1.jpg" alt="Tree1" class="img-thumbnail img-responsive mb-3"></a>
+                <ul id="gallery_using_5" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="2">
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/product1.jpg" 
+                            alt="Manually deleting Values" 
+                            data-subtext="Manually deleting Values"  
+                            data-alt="Manually deleting Values"
+                            class="img-thumbnail img-responsive mb-3">
                     </li>
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/product2.jpg" title="Hierarchical operate"><img src="/img/help/attributico/product2.jpg" alt="Tree2" class="img-thumbnail img-responsive mb-3"></a>
-                    </li>
-                </ul>
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/product2.jpg" 
+                            alt="Manually no deleting Values" 
+                            data-subtext="Manually no deleting Values"  
+                            data-alt="Manually no deleting Values"
+                            class="img-thumbnail img-responsive mb-3">                        
+                    </li>                    
+                </ul>                   
                 <p>Теперь эту операцию можно сделать в один клик для всех товаров.</p>
                 <p>Все было бы хорошо, если бы товар имел-бы только одно <span class="node">Значение</span> или, иначе, одну характеристику для одного <span class="node">Атрибута</span>, но зачастую
                     их бывает <a href="theory.html#theory-template">несколько</a>. Как быть если у нас есть еще товар или товары, где <span class="node">Атрибут</span> <code>Тестовый атрибут 3.1</code> принимает <span class="node">Значение</span>
                     <code>тестовое значение 3.2.1/тестовое значение 3.2.2</code>? Удалять или оставить?</p>
-                <a class="lightgallery" href="/img/help/attributico/product3.jpg" title="Settings"><img src="/img/help/attributico/product3.jpg" alt="Settings" class="img-thumbnail img-responsive mb-3"></a>
+                <div class="hes-gallery" data-wrap="true" data-img-count="1">
+                    <img src="/img/help/attributico/product3.jpg" 
+                        alt="Deleting multiple values" 
+                        data-subtext="Deleting multiple values"  
+                        data-alt="Deleting multiple values"
+                        class="img-thumbnail img-responsive mb-3">
+                </div>                
                 <p>Чтобы избежать неоднозначности, в модуле предусмотрено два режима удаления <span class="node">Значений</span> - по точному совпадению и по вхождению подстроки в строку.</p>
-                <p>Удаление по точному совпаденю будет происходить если выбраны узлы с родителем <span class="node">Шаблоны</span>.</p>
-                <p>Удаление по вхождению подстроки в строку будет происходить если выбраны узлы с родителем <span class="node">Значения</span>.</p>
+                <p>Удаление по точному совпаденю будет происходить если удаляется <span class="node">Шаблон</span> (узлы с родителем <span class="node">Шаблоны</span>).</p>
+                <p>Удаление по вхождению подстроки в строку будет происходить если удаляется <span class="node">Значение</span> (узлы с родителем <span class="node">Значения</span>).</p>
                 <p>В превом случае удаления не произойдет, во втором <span class="node">Атрибут</span> будет удален.</p>
-                <ul id="gallery_6" class="list-unstyled row">
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/product4.jpg" title="Hierarchical multi-selection"><img src="/img/help/attributico/product4.jpg" alt="Tree1" class="img-thumbnail img-responsive mb-3"></a>
+                <ul id="gallery_using_6" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="2">
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/product4.jpg" 
+                            alt="Auto deleting Template" 
+                            data-subtext="Auto deleting Template"  
+                            data-alt="Auto deleting Template"
+                            class="img-thumbnail img-responsive mb-3">
                     </li>
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/product5.jpg" title="Hierarchical operate"><img src="/img/help/attributico/product5.jpg" alt="Tree2" class="img-thumbnail img-responsive mb-3"></a>
-                    </li>
-                </ul>
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/product5.jpg" 
+                            alt="Auto deleting Value" 
+                            data-subtext="Auto deleting Value"  
+                            data-alt="Auto deleting Value"
+                            class="img-thumbnail img-responsive mb-3">                        
+                    </li>                    
+                </ul>                
                 <div class="callout callout-danger">
                     <h4>Разница между удалением <span class="node">Шаблонов</span> и <span class="node">Значений</span></h4>
                     <p>Удаление <span class="node">Шаблона</span> это удаление по точному совпаденю поля в товаре с образцом.</p>
@@ -218,14 +240,22 @@
                 <p>Если после входа в режим редактирования нажать <kbd class="small">Alt + Shift + Click</kbd>, то включится подгрузка уже имеющихся в товарах <span class="node">Значений</span>.
                     Если таких <span class="node">Значений</span> нет, то в списке будет только <code>No data...</code>.
                 </p>
-                <ul id="gallery_9" class="list-unstyled row">
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/duty1.jpg" title="Duty dropdown select"><img src="/img/help/attributico/duty1.jpg" alt="Duty1" class="img-thumbnail img-responsive mb-3"></a>
+                <ul id="gallery_using_9" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="2">
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/duty1.jpg" 
+                            alt="Duty dropdown select" 
+                            data-subtext="Duty dropdown select"  
+                            data-alt="Duty dropdown select"
+                            class="img-thumbnail img-responsive mb-3">
                     </li>
-                    <li class="col-md-6">
-                        <a class="lg-item" href="/img/help/attributico/duty2.jpg" title="Duty dropdown no datat"><img src="/img/help/attributico/duty2.jpg" alt="Duty2" class="img-thumbnail img-responsive mb-3"></a>
-                    </li>
-                </ul>
+                    <li class="col-xs-6 col-md-6">
+                        <img src="/img/help/attributico/duty2.jpg" 
+                            alt="Duty dropdown no data" 
+                            data-subtext="Duty dropdown no data"  
+                            data-alt="Duty dropdown no data"
+                            class="img-thumbnail img-responsive mb-3">                        
+                    </li>                    
+                </ul>                
                 <h2 id="using-duty-del">Удаление дежурного шаблона.</h2>
                 <p>Удаление (очистка) <a href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a> производится через <a href="#using-context-menu">контекстное меню</a> или клавишей <kbd class="small">Del</kbd>.</p>
                 <p>Операцию можно производить только на вкладках <mark><small>Дежурные шаблоны</small></mark> или  <mark><small>Группы атрибутов</small></mark>. Данная операция не затрагивает товары. Удаляется только <span class="node">Дежурный шаблон</span>.</p>

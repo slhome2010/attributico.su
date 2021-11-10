@@ -9,7 +9,7 @@
 ?>
 
 <!-- Docs page layout -->
-<li class="container-fluid">   
+<div class="container-fluid">   
     <div class="row flex-xl-nowrap section">
         <?php require "sidebar.html";?>
         <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
@@ -17,12 +17,10 @@
             <div class="docs-section">
                 <div class="page-header">
                     <h1 id="using-example">Примеры.</h1>
-                </div>
+                </div>                
                 <ul class="list-unstyled">
                     <li class="media" id="example-edit">
-                        <a class="lg-item" href="https://youtu.be/0imJqYscxRI">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jBcowwJZlPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Редактирование Групп и Атрибутов</h5>
                             <p>Как добавить новую <span class="node">Группу</span>. Как добавить новый <span class="node">Атрибут</span>. Как изменить название добавленного или любого выбранного
@@ -30,23 +28,20 @@
                         </div>
                     </li>
                     <li class="media my-4" id="example-filter">
-                        <a class="lg-item" href="https://youtu.be/gW3l9gFJ67o">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/gW3l9gFJ67o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Поиск с помощью фильтра</h5>
                             <p>Поиск <span class="node">Групп</span>, <span class="node">Атрибутов</span>, <span class="node">Значений</span> в дереве с помощью фильтра.</p>
                         </div>
                     </li>
                     <li class="media" id="example-edit-values">
-                        <a class="lg-item" href="https://youtu.be/_K9NL4JgAdw">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_K9NL4JgAdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Редактирование Шаблонов и Значений</h5>
                             <p>Простое редактирование или исправление ошибок в <span class="node">Шаблоне</span> или в <span class="node">Значениях</span>.</p>
                         </div>
                     </li>
+                </ul>
                     <div class="callout callout-info">
                         <h4>В чем разница?</h4>
                         <d>Если Вы вносите изменения в <span class="node">Значение</span>, то изменения произойдут во всех товарах, где присутствуют это <span class="node">Значение</span>,
@@ -54,15 +49,15 @@
                             коснутся их всех. Если изменения делаются в <span class="node">Шаблоне</span>, то это касаются всех товаров, где присутствует данный <span class="node">Шаблон</span>, другие товары и
                             <span class="node">Шаблоны</span> затронуты не будут.
                     </div>
+                <ul>
                     <li class="media" id="example-copy">
-                        <a class="lg-item" href="https://youtu.be/q6OkGi1EM2s">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/q6OkGi1EM2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Копирование атрибута, смена группы</h5>
                             <p>Копирование <span class="node">Атрибута</span> одной <span class="node">Группы</span> в другую, смена <span class="node">Группы</span>.</p>
                         </div>
                     </li>
+                </ul>
                     <div class="callout callout-info">
                         <h4>В чем разница?</h4>
                         <p>При копирование <span class="node">Атрибута</span> одной <span class="node">Группы</span> (источник) в другую (цель), и в источнике и в цели <span class="node">Атрибут</span>
@@ -70,37 +65,30 @@
                         <p>При Drag-and-Drop смене <span class="node">Группы</span>, <span class="node">Атрибут</span> переносится в цель со всеми <span class="node">Значениями</span> и <span class="node">Шаблонами</span>
                             Из источника <span class="node">Атрибут</span> удаляется полностью.</p>
                     </div>
+                <ul>
                     <li class="media" id="example-sort">
-                        <a class="lg-item" href="https://youtu.be/UQASi1MuLWc">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/UQASi1MuLWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Drag-and-Drop сортировка</h5>
                             <p>Сортировка <span class="node">Групп</span>. Сортировка <span class="node">Атрибутов</span> внутри <span class="node">Группы</span>.</p>
                         </div>
                     </li>
                     <li class="media my-4" id="example-category-attributes">
-                        <a class="lg-item" href="https://youtu.be/FZWGr5aQIwM">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/FZWGr5aQIwM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Работа с атрибутами категорий</h5>
                             <p>Добавить <span class="node">Атрибут</span> в категорию. Сменить категорию. Добавить <span class="node">Атрибуты категории</span> в товар.</p>
                         </div>
                     </li>
                     <li class="media" id="example-integro">
-                        <a class="lg-item" href="https://youtu.be/kN91LkmpN_c">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kN91LkmpN_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Интеграция со страницей товара</h5>
                             <p>Добавить <span class="node">Атрибуты категории</span> в товар. Заполнить <span class="node">Значения</span>. Создать новые <span class="node">Шаблоны</span>.</p>
                         </div>
                     </li>
                     <li class="media my-4" id="example-duty">
-                        <a class="lg-item" href="https://youtu.be/zdL9XxdNmyA">
-                            <img class="mr-3" src="/img/video-play.png" alt="Дежурные шаблоны">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zdL9XxdNmyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Дежурные шаблоны</h5>
                             <p>Редактировать <span class="node">Дежурные шаблоны</span>. Добавить <span class="node">Атрибуты</span> в категорию вместе <span class="node">Дежурными шаблонами</span>.
@@ -109,24 +97,20 @@
                         </div>
                     </li>
                     <li class="media" id="example-merge">
-                        <a class="lg-item" href="https://youtu.be/Z1w8sFOJy_E">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1w8sFOJy_E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Слияние атрибутов</h5>
                             <p>Слияние <span class="node">Атрибутов</span>. Объединение "неявных дублей". Без потери <span class="node">Значений</span> и связей с товаром.</p>
                         </div>
                     </li>
                     <li class="media my-4" id="example-parsing">
-                        <a class="lg-item" href="https://youtu.be/8OcO_4L7iBU">
-                            <img class="mr-3" src="/img/video-play.png" alt="...">
-                        </a>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8OcO_4L7iBU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="media-body">
                             <h5 class="mt-0 mb-1">Подготовка группы парсинга</h5>
                             <p>Дефрагментация <span class="node">Групп</span> и <span class="node">Атрибутов</span>. Подготовка <span class="node">Группы парсинга</span>.</p>
                         </div>
                     </li>
-                </ul>
+                </ul>            
             </div>
         </main>
         <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
