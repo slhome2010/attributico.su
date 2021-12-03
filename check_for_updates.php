@@ -1,14 +1,12 @@
 <?php
+require_once(__DIR__ . '/../config.php');
 
 $responce = array(
-	'lastversion' => 'v3.1.9',
+	'lastversion' => LAST_VERSION,
 	'news' => '<h4>Есть обновления!</h4> 
-				<p class="lead">Версия 3.1.9.</p>
+				<p class="lead">Версия' . LAST_VERSION .'.</p>
 				<ul>
-				<li>Добавлен инструмент "Заменить разделитель";</li>
-				<li>Добавлен инструмент "Сменить регистр";</li>
-				<li>Сделана валидация разделителя в настройках модуля;</li> 
-				<li>Фильтр в инструментах вынесен отдельным блоком;</li>                   
+					<li>Исправлены ошибки, связанные с кодировкой кириллицы в GET-запросах;</li>				                
 				</ul>',
 	'well' => '<p class="lead">Вы используете последнюю версию модуля <span> Attribut<b style="color: #2199C7;">&</b>co</span> !</p>',
 	'links' => '<div class="form-group">
