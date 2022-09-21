@@ -269,7 +269,7 @@
                     <h4>Внимание!</h4>
                     <p>При отключенном пункте <span class="im">Добавлять атрибут категории в товары</span>, настройки <span class="im">Добавление значений атрибута в товар</span> не активируются.</p>
                 </div>
-                <h2 id="settings-replace">Редактирование значений.</h2>
+                <h2 id="settings-compare">Сравнение значений.</h2>
                 <p>Эта настройка определяет алгоритм обновления <span class="node">Значений</span> после их редактирования.</p>
                 <div class="hes-gallery" data-wrap="true" data-img-count="1">
                     <img src="/img/help/attributico/replacemode.jpg" 
@@ -289,6 +289,11 @@
                     <p>Описанная выше настройка касается редактирования <span class="node">Значений</span>.</p>
                     <p>Обновление <span class="node">Шаблона</span> всегда делается по точному совпадению редактируемого образца и всего <span class="node">Шаблона</span> целиком.</p>
                 </div>
+                <p>Эта настройка влияет также на выборку товаров, у которых присутствует определенное <span class="node">Значение атрибута</span>.</p>
+                <p>Например, если установлен режим "По вхождению подстроки", то при нажатии на <span class="node">Значение атрибута</span> <code>20</code>,
+                в дереве товаров будут выведены товары со <span class="node">Значениями</span> <code>20</code>, <code>120</code>, <code>200</code>.</p>
+                <p>Если же установлен режим "По точному совпадению", то при нажатии на <span class="node">Значение атрибута</span> <code>20</code>,
+                    в дереве товаров будут выведены товары только со <span class="node">Значениями</span> <code>20</code>.</p>
                 <h2 id="settings-dialog">Оперативное изменение настроек.</h2>
                 <p>Некоторые настройки можно изменять оперативно, в процессе работы. По окончании работы они не сохраняются.</p>
                 <p>Если в <a href="using.html#using-context-menu">контекстном меню</a> выбрать пункт "Настройки", то появится <a href="using.html#using-dialog">диалоговое окно</a> управления деревом.</p>
@@ -301,7 +306,7 @@
                 <li class="nav-item"><a class="nav-link" href="#settings-category">Атрибуты категории</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings-inherit">Наследование</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings-product">Добавление в товар</a></li>
-                <li class="nav-item"><a class="nav-link" href="#settings-replace">Редактирование значений</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings-compare">Сравнение значений</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings-dialog">Оперативная настройка</a></li>
             </ul>
         </nav>
