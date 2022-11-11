@@ -6,9 +6,9 @@ $responce = array(
 	'news' => '<h4>Есть обновления!</h4> 
 				<p class="lead">Версия' . LAST_VERSION .'.</p>
 				<ul>
-				<li>Настройка "Редактирование значений" изменена на "Сравнение значений" и теперь
-				влияет не только на режим редактирования значений, но и на выборку товаров, 
-				соответствующих определенному Значению атрибута;</li>							                
+					<li>Удаление Значений теперь так же зависит от настройки "Сравнение значений";</li>
+					<li>Исправлена ошибка клонирования;</li>
+					<li>Исправлена ошибка обрезания значений содержащих кавычки;</li>							                
 				</ul>',
 	'well' => '<p class="lead">Вы используете последнюю версию модуля <span> Attribut<b style="color: #2199C7;">&</b>co</span> !</p>',
 	'links' => '<div class="form-group">
@@ -20,7 +20,7 @@ $responce = array(
 					</ul>								
 				</div>',
 	'copyright' => '<strong>Документация:</strong> <a href="http://attributico.su/doc/ru/attributico.html">http://attributico.su/doc/ru/attributico.html</a><br/>
-					<p>Copyright &copy; 2016-2021&nbsp; Comtronics</p>',
+					<p>Copyright &copy; 2016-2022&nbsp; Comtronics</p>',
 );
 
 echo json_encode($responce);
