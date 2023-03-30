@@ -6,7 +6,7 @@ $responce = array(
 	'news' => '<h4>Есть обновления!</h4> 
 				<p class="lead">Версия' . LAST_VERSION .'.</p>
 				<ul>
-					<li>Исправлена ошибка объединения дублей;</li>					
+					<li>Исправлена ошибка редактирования значений в режиме "по точному совпадению";</li>					
 				</ul>',
 	'well' => '<p class="lead">Вы используете последнюю версию модуля <span> Attribut<b style="color: #2199C7;">&</b>co</span> !</p>',
 	'links' => '<div class="form-group">
