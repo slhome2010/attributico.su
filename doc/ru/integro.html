@@ -21,14 +21,23 @@
                 <p>Интеграция модуля с движком OpenCart осуществляется с помощью файлов модификаторов <code>ocmod</code> или <code>vqmod</code>. О назначении файлов 
                     в разделе <a href="included.html#whats-included">Структура архива</a>. Об установке модификаторов в разделе <a href="install.html#install-install">Установка</a>.
                      Если модификация прошла корректно, в карточке товара должны появиться дополнительные кнопки управления.</p>
-                     <div class="table-responsive">
+                     <div class="table-responsive" style="font-size: 13px;">
                         <table id="attribute" class="table table-striped table-bordered table-hover">
                           <thead>
                             <tr>
-                                <td class="text-left"></td><td class="text-left"></td>
+                                <td class="text-left">Атрибут:
+                                    <button type="button" id="attach-attribute" class="btn btn-success pull-right btn-sm"><i class="fa fa-plus"></i> Атрибуты категорий</button>
+                                </td>
+                                <td class="text-left"></td>
                                 <td class="text-left">                                    
                                     <div id="serv-panel" class="pull-right form-inline">                        
-                                    <label class="radio-inline"><input type="radio" name="filter-values" id="filter-nofilter" value="all" checked="">Все</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-category" value="categories">Категории</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-duty" value="duty">Дежурные</label><div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view" class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div><select class="form-control" id="method-view" style="margin-left:3px; font-weight:normal; width:27%"><option value="1" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Очищать</option><option value="2" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Не менять</option><option value="3" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Заменять дежурным</option><option selected="" value="4" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Только в пустые</option></select></div>
+                                    <label class="radio-inline"><input type="radio" name="filter-values" id="filter-nofilter" value="all" checked="">Все</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-category" value="categories">Категории</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-duty" value="duty">Дежурные</label><div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view" class="btn btn-info btn-sm"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view" class="btn btn-outline-dark btn-sm"><i class="fa fa-th"></i>Значения</button></div><select class="form-control" id="method-view" style="margin-left:3px; font-weight:normal; width:27%"><option value="1" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Очищать</option><option value="2" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Не менять</option><option value="3" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Заменять дежурным</option><option selected="" value="4" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Только в пустые</option></select>
+                                    <div class="btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-outline-dark active" style="margin-left:3px;">
+                                            <input type="checkbox" name="multi" id="multi"><i class="fa fa-copy"></i>
+                                        </label>
+                                    </div>
+                                </div>                                       
                                 </td>
                                 <td></td>
                             </tr>
@@ -36,7 +45,7 @@
                           <tbody></tbody>
                         </table>
                       </div>
-                <p>И поле выбора в правой стороне таблице  <div class="input-group">
+                <p>И поле выбора в правой стороне таблицы для каждго языка  <div class="input-group">
                     <select name="attribute_select_3" class="form-control attribute_select" attribute_id="3" language_id="1" style="display:block;"><option value=""> --- Выберите --- </option></select>
                   </div>
                 </p>
@@ -45,8 +54,8 @@
                 <p>Станут доступны следующие <span class="text-danger font-italic">манипуляции</span> :</p>
                 <ul>
                     <li>Вставка <span class="node">Шаблонов</span> или <span class="node">Значений</span> из выпадающего списка;</li>
-                    <li>Вставка <span class="node">Значений</span> в момент выбора <span class="node">Атрибута</span>;</li>
-                    <li>Вставка <span class="node">Атрибутов</span> с их <span class="node">Значениями</span> в момент привязки или перепривязки товара к категории на вкладке <mark><small>Связи</small></mark>;</li>                    
+                    <li>Вставка <span class="node">Дежурных шаблонов</span> в момент выбора <span class="node">Атрибута</span>;</li>
+                    <li>Вставка <span class="node">Атрибутов</span> с их <span class="node">Дежурных шаблонов</span> в момент привязки или перепривязки товара к категории на вкладке <mark><small>Связи</small></mark>;</li>                    
                 </ul>
                 <h2 id="integro-list">Управление видом списка.</h2>
                 <div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view1" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view1" class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div>        
