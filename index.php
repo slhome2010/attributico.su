@@ -1,6 +1,6 @@
 <?php
 
-@session_start();
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 
 /* file_put_contents('servenus.txt', print_r('INDEX_REQUEST_URI ='.$_SERVER['REQUEST_URI'],true),FILE_APPEND);
 file_put_contents('servenus.txt', print_r(PHP_EOL,true),FILE_APPEND); */

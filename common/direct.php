@@ -7,13 +7,13 @@ $en = strpos($uri, 'doc/en');
 file_put_contents('../servenus.txt', print_r(PHP_EOL,true),FILE_APPEND); */  
 
 //Addition routing for direct links
-@session_start();
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 if ($ru) {
     $_SESSION['lang'] = 'ru';
 } else if ($en) {
     $_SESSION['lang'] = 'en';
 } else {
-
+    
 }
 
 ?>
