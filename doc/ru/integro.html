@@ -18,111 +18,149 @@
                     <h1 id="integro">Интеграция с OpenCart.</h1>
                 </div>
                 <h3 id="integro-product">Интеграция со страницей товара.</h3>
-                <p>Интеграция модуля с движком OpenCart осуществляется с помощью файлов модификаторов <code>ocmod</code> или <code>vqmod</code>. О назначении файлов 
-                    в разделе <a href="included.html#whats-included">Структура архива</a>. Об установке модификаторов в разделе <a href="install.html#install-install">Установка</a>.
-                    Если модификация прошла корректно, то в сайдбаре административной панели в меню <mark><small>Каталог ⇒ Характеристики</small></mark>должен появиться пункт <span>Attribut<b style="color: #2199C7;">&amp;</b>co</span>, а в карточке товара должны появиться дополнительные кнопки управления.</p>
-                     
-                        <table id="attribute" class="table table-striped table-bordered table-hover" style="font-size: 13px;">
-                          <thead>
-                            <tr>                          
-                                <td class="text-left"> 
-                                    <div class="row">                   
-                                     <input type="text" name="attribute-group" value="" placeholder="Группа характеристик" id="attribute-group" class="col-md-5 col-sm-12 col-xs-12" style="font-weight:normal;" autocomplete="off"><ul class="dropdown-menu"></ul> 
-                                     <div class="col-md-1 col-sm-1 col-xs-12"></div>                                    
-                                     <button type="button" id="attach-attribute" class="btn btn-success col-md-5 col-sm-12 col-xs-12 btn-sm pull-right"><i class="fa fa-plus"></i> Атрибуты категорий</button> 
-                                    </div>                 
-                                </td>
-                                <td class="text-left"></td>            
-                                <td  id="serv-panel">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-12 form-inline"><label class="radio-inline"><input type="radio" name="filter-values" id="filter-nofilter" value="all" checked="">Все</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-category" value="categories">Категории</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-duty" value="duty">Дежурные</label></div>
-                                    <div class="col-lg-6 col-md-12 form-inline"><div class="btn-group"><button type="button" id="template-view" class="btn btn-info btn-sm"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view" class="btn btn-outline-dark btn-sm"><i class="fa fa-th"></i>Значения</button></div></div></div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12"><select class="form-control method-view" id="method-view" style="font-weight:normal;"><option key="clean" value="clean" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Очищать</option><option key="unchange" value="unchange" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Не менять</option><option key="overwrite" value="overwrite" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Заменять дежурным</option><option key="ifempty" value="ifempty" selected="" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Только в пустые</option></select></div><div class="col-md-6 col-sm-12"><div class="btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-outline-dark">
-                                        <input type="checkbox" name="multi" id="multi"><i class="fa fa-copy"></i>
-                                    </label>
-                                </div></div></div></td>
-                                <td class="text-left"></td>
-                              </tr>
-                            
-                          </thead>
-                          <tbody></tbody>
-                        </table>
-                      
-                <p>В правой стороне таблицы для каждго языка должно появиться поле выбора <span class="node">Значений</span> из списка.<div class="input-group">
-                    <select name="attribute_select_3" class="form-control attribute_select" attribute_id="3" language_id="1" style="display:block;"><option value=""> --- Выберите --- </option></select>
-                  </div>
-                  <form class="form-horizontal">
-                  <table class="table table-striped table-bordered table-hover" style="font-size: 13px;">
+                <p>Интеграция модуля с движком OpenCart осуществляется с помощью файлов модификаторов <code>ocmod</code> или <code>vqmod</code>. О назначении файлов в разделе <a href="included.html#whats-included">Структура архива</a>. Об
+                    установке модификаторов в разделе <a href="install.html#install-install">Установка</a>.</p>
+                <div class="callout callout-danger">
+                    <h4>Важно.</h4>
+                    <p>Все действия, описанные ниже, производимые с помощью этого модификатора, не вносят изменений в Базу Данных. Все изменения происходят только в браузере, на странице карточки одного товара.</p>
+                    <p>Изменения в Базе Данных происходят только после того, как Вы нажмете кнопку "Сохранить". Работа с Базой Данных осуществляется штатными средствами OpenCart.</p>
+                    <p>Сохранить или не сохранить изменения принимаете решение Вы и только Вы.</p>
+                </div>
+                <p>Если модификация прошла корректно, то в сайдбаре административной панели в меню <mark><small>Каталог ⇒ Характеристики</small></mark>должен появиться пункт <span>Attribut<b style="color: #2199C7;">&amp;</b>co</span>, а в
+                    карточке товара должны появиться дополнительные кнопки управления.</p>
+
+                <table id="attribute" class="table table-striped table-bordered table-hover" style="font-size: 13px;">
                     <thead>
-                      <tr>                          
-                          <td class="text-left"> 
-                                               
-                          </td>
-                          <td class="text-left"></td>            
-                          <td  >
-                              </td>
-                          <td class="text-left"></td>
+                        <tr>
+                            <td class="text-left">
+                                <div class="row">
+                                    <input type="text" name="attribute-group" value="" placeholder="Группа характеристик" id="attribute-group" class="col-md-5 col-sm-12 col-xs-12" style="font-weight:normal;" autocomplete="off">
+                                    <ul class="dropdown-menu"></ul>
+                                    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+                                    <button type="button" id="attach-attribute" class="btn btn-success col-md-5 col-sm-12 col-xs-12 btn-sm pull-right"><i class="fa fa-plus"></i> Атрибуты категорий</button>
+                                </div>
+                            </td>
+                            <td class="text-left"></td>
+                            <td id="serv-panel">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 form-inline"><label class="radio-inline"><input type="radio" name="filter-values" id="filter-nofilter" value="all" checked="">Все</label><label class="radio-inline"><input
+                                                type="radio" name="filter-values" id="filter-category" value="categories">Категории</label><label class="radio-inline"><input type="radio" name="filter-values" id="filter-duty"
+                                                value="duty">Дежурные</label></div>
+                                    <div class="col-lg-6 col-md-12 form-inline">
+                                        <div class="btn-group"><button type="button" id="template-view" class="btn btn-info btn-sm"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view"
+                                                class="btn btn-outline-dark btn-sm"><i class="fa fa-th"></i>Значения</button></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12"><select class="form-control method-view" id="method-view" style="font-weight:normal;">
+                                            <option key="clean" value="clean" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Очищать</option>
+                                            <option key="unchange" value="unchange" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Не менять</option>
+                                            <option key="overwrite" value="overwrite" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Заменять дежурным</option>
+                                            <option key="ifempty" value="ifempty" selected="" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">Только в пустые</option>
+                                        </select></div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-outline-dark">
+                                                <input type="checkbox" name="multi" id="multi"><i class="fa fa-copy"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-left"></td>
                         </tr>
-                      
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <p>В правой стороне таблицы над текстовой областью для каждго языка должно появиться поле выбора <span class="node">Значений</span> из списка.</p>
+                <table class="table table-striped table-bordered table-hover" style="font-size: 13px;">
+                    <thead>
+                        <tr>
+                            <td class="text-left">
+
+                            </td>
+                            <td class="text-left"></td>
+                            <td>
+                            </td>
+                            <td class="text-left"></td>
+                        </tr>
+
                     </thead>
                     <tbody>
                         <tr id="attribute-row1">
-                            <td class="text-left" style="width: 40%;"><label id="group-name1">Processor</label>                        
-                    <input type="text" name="product_attribute[1][name]" value="Clockspeed" placeholder="Характеристики" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
-                              <input type="hidden" name="product_attribute[1][attribute_id]" value="3"></td>
-        <td class="text-left" style="width: 5%;"><input type="text" value="13" class="form-control" readonly="true"></td>
-                    
-                            <td class="text-left">  
+                            <td class="text-left" style="width: 40%;"><label id="group-name1">Processor</label>
+                                <input type="text" name="product_attribute[1][name]" value="Clockspeed" placeholder="Характеристики" class="form-control" autocomplete="off">
+                                <ul class="dropdown-menu"></ul>
+                                <input type="hidden" name="product_attribute[1][attribute_id]" value="3">
+                            </td>
+                            <td class="text-left" style="width: 5%;"><input type="text" value="13" class="form-control" readonly="true"></td>
 
-                                 <div class="input-group">
+                            <td class="text-left">
+
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><img src="/language/ru-ru.png" title="Russian"></span>
                                     </div>
-                                <div>
-                                <select name="attribute_select_3" class="form-control" attribute_id="3" language_id="1" attribute_row="1"><option key="{0}" value="{0}"> --- Выберите --- </option><option key="" value="4Мгц">4Мгц</option></select>
-                                <textarea name="product_attribute[1][product_attribute_description][1][text]" rows="3" placeholder="Текст" class="form-control"></textarea>
+                                    <div style="width: 85%;">
+                                        <select name="attribute_select_3" class="form-control" attribute_id="3" language_id="1" attribute_row="1">
+                                            <option key="{0}" value="{0}"> --- Выберите --- </option>
+                                            <option key="" value="4Мгц">4Мгц</option>
+                                        </select>
+                                        <textarea name="product_attribute[1][product_attribute_description][1][text]" rows="3" placeholder="Текст" class="form-control"></textarea>
+                                    </div>
                                 </div>
-                              </div>                      
-                              <div class="input-group">                                
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><img src="/language/en-gb.png" title="Russian"></span>
                                     </div>
-                                <div>
-                                <select name="attribute_select_3" class="form-control" attribute_id="3" language_id="2" attribute_row="1"><option key="{0}" value="{0}"> --- Выберите --- </option><option key="" value="4MGh">4MGh</option></select>
-                                <textarea name="product_attribute[1][product_attribute_description][2][text]" rows="3" placeholder="Текст" class="form-control"></textarea>
+                                    <div style="width: 85%;">
+                                        <select name="attribute_select_3" class="form-control" attribute_id="3" language_id="2" attribute_row="1">
+                                            <option key="{0}" value="{0}"> --- Выберите --- </option>
+                                            <option key="" value="4MGh">4MGh</option>
+                                        </select>
+                                        <textarea name="product_attribute[1][product_attribute_description][2][text]" rows="3" placeholder="Текст" class="form-control"></textarea>
+                                    </div>
                                 </div>
-                            </div>
                             </td>
-                            <td class="text-right"><button type="button" onclick="product_attribute_id = product_attribute_id.filter(item=>item !== $('#attribute-row1').find('[name *= attribute_id]').val()); $('#attribute-row1').remove(); " data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Удалить"><i class="fa fa-minus-circle"></i></button></td>
-                    
-                          </tr>
+                            <td class="text-right"><button type="button" onclick="product_attribute_id = product_attribute_id.filter(item=>item !== $('#attribute-row1').find('[name *= attribute_id]').val()); $('#attribute-row1').remove(); "
+                                    data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Удалить"><i class="fa fa-minus-circle"></i></button></td>
+
+                        </tr>
                     </tbody>
-                  </table>
-                </form>
-                </p>
+                </table>
+
+
                 <p>Станут доступны следующие <span class="text-danger font-italic">операции</span> :</p>
                 <ul>
                     <li>Вставка <span class="node">Шаблонов</span> или <span class="node">Значений</span> из выпадающего списка;</li>
-                    <li>Вставка <span class="node">Дежурных шаблонов</span> в момент выбора <span class="node">Атрибута</span>;</li>
-                    <li>Вставка <span class="node">Атрибутов</span> с их <span class="node">Дежурных шаблонов</span> в момент привязки или перепривязки товара к категории на вкладке <mark><small>Связи</small></mark>;</li>                    
+                    <li>Вставка <span class="node">Дежурных шаблоном</span> в момент выбора <span class="node">Атрибута</span>;</li>
+                    <li>Вставка <span class="node">Атрибутов</span> с их <span class="node">Дежурных шаблонов</span> в момент привязки или перепривязки товара к категории на вкладке <mark><small>Связи</small></mark>;</li>
+                    <li>Вставка всех <span class="node">Атрибутов категории</span> с их <span class="node">Дежурным шаблоном</span> одной кнопкой;</li>
+                    <li>Вставка всех <span class="node">Атрибутов</span> выбранной из списка группы с их <span class="node">Дежурным шаблоном</span>;</li>
                 </ul>
                 <h2 id="integro-list">Управление видом списка.</h2>
-                <div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view1" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view1" class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div>        
-                <p>В зависимости от того, какая кнопка нажата, в поле выбора будут выводиться либо <span class="node">Шаблоны</span> либо <span class="node">Значения</span>. Имеется в виду, что <span class="node">Значения</span> это "разобранные" по разделителю <span class="node">Шаблоны</span>.</p>
-                <div class="callout callout-info">
-                    <h4>Новый шаблон.</h4>
-                    <p>Новый шаблон всегда можно "накидать" из <span class="node">Значений</span>. Разделитель будет подставляться автоматически. Недостающие в списке <span class="node">Значения</span> можно добавить вручную, отредактировав текстовую область.</p>
-                </div>
+                <div class="btn-group" style="margin-left:10px;"><button type="button" id="template-view1" class="btn btn-info"><i class="fa fa-th-list"></i>Шаблоны</button><button type="button" id="values-view1"
+                        class="btn btn-outline-dark"><i class="fa fa-th"></i>Значения</button></div>
+                <p>В зависимости от того, какая кнопка нажата, в поле выбора будут выводиться либо <span class="node">Шаблоны</span> либо <span class="node">Значения</span>.</p>
+                <p><span class="node">Шаблон</span> это набор <span class="node">Значений</span> <span class="node">Атрибута</span>, записанных через разделитель. Иногда его называют "Множественным значением".</p>
+                <p>В свою очередь <span class="node">Значения</span> это "разобранные" по разделителю <span class="node">Шаблоны</span>.</p>                
                 <p class="lead">Откуда берутся шаблоны.</p>
                 <p>Представим, что мы только начали работать с магазином. Создали несколько товаров, несколько <span class="node">Атрибутов</span>. Зайдя в карточку товара, на вкладку <mark><small>Атрибуты</small></mark>
                     мы увидим пустую страницу. Добавим <span class="node">Атрибут</span> и справа видим пустое текстовое поле. Чтобы появился хотя бы один <span class="node">Шаблон</span> надо что-то вписать в это поле. Точнее туда надо
                     вписать набор <span class="node">Значений</span>. Например <code>Дальность1/Дальность2/Дальность3</code>. После того, как Вы сохраните изменения и снова зайдете в карточку товара, то увидите, что справа появилось
-                    поле выбора и выбрать возможно только одну запись. По мере накопления товаров и соответствующих им, заполненных, текстовых полей, список <span class="node">Шаблонов</span> пополняется.</p>                
+                    поле выбора и выбрать возможно только одну запись. По мере накопления товаров и соответствующих им, заполненных, текстовых полей, список <span class="node">Шаблонов</span> пополняется.</p>
                 <p>Более подробно можно почитать в разделе <a href="theory.html#theory-template">Шаблоны и значения</a>.</p>
+                <div class="callout callout-info">
+                    <h4>Новый шаблон.</h4>
+                    <p>Новый шаблон всегда можно "накидать" из <span class="node">Значений</span>. Разделитель будет подставляться автоматически. Недостающие в списке <span class="node">Значения</span> можно добавить вручную, отредактировав
+                        текстовую область.</p>
+                </div>
                 <h2 id="integro-filter">Фильтр значений.</h2>
-                <p>В магазинах с большим количеством товаров, <span class="node">Атрибутов</span> и их <span class="node">Значений</span> список, подключаемый к полю выбора может быть очень длинным. Это вызывает определенные неудобства при заполнении таблицы. Фильтр позволяет ограничить выдачу <span class="node">Значениями</span> только отмеченных на вкладке <mark><small>Связи</small></mark> категорий (не путать со <span class="node">Значениями атрибутов категорий</span>) или <a class="anchor" href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a></p>
+                <p>В магазинах с большим количеством товаров, <span class="node">Атрибутов</span> и их <span class="node">Значений</span> список, подключаемый к полю выбора может быть очень длинным. Это вызывает определенные неудобства при
+                    заполнении таблицы. Фильтр позволяет ограничить выдачу <span class="node">Значениями</span> только отмеченных на вкладке <mark><small>Связи</small></mark> категорий (не путать со <span class="node">Значениями атрибутов
+                        категорий</span>) или <a class="anchor" href="theory.html#theory-duty"><span class="node">Дежурного шаблона</span></a></p>
                 <p>Если отмечен пункт "Все", то в список попадут все <span class="node">Значения</span> данного <span class="node">Атрибута</span> для всех товаров, плюс <span class="node">Дежурный шаблон</span>.</p>
                 <div>
                     <label class="radio-inline">
@@ -137,26 +175,37 @@
                     <label class="radio-inline"></label>
                 </div>
                 <p></p>
-                <p>Фильтр работает в оперативном режиме, перезагрузка списка <span class="node">Значений</span> происходит сразу после переключения режима. На больших магазинах иногда заметны задержки. Т.е. после переключения надо немного подождать.</p>
-                <h3 id="integro-override">Переопределение способа вставки значений.</h3>                
-                <p>До сих пор <span class="node">Значения</span> или <span class="node">Шаблоны</span> в товар вставлялись в соответствии со способом, который установлен в настройках <a class="anchor" href="settings.html#settings-product"><mark><small>Добавление значений атрибута в товар</small></mark></a>.</p>
-                <p>Чтобы каждый раз не менять базовые настройки, добавлена возможность оперативно <mark><em>переопределить способ</em></mark> вставки значений.</p>                
-                <select class="form-control" id="method-view" style="margin-left:3px; font-weight:normal; width:27%"><option value="1" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Очищать</option><option value="2" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Не менять</option><option value="3" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Заменять дежурным</option><option selected="" value="4" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Только в пустые</option></select>
+                <p>Фильтр работает в оперативном режиме, перезагрузка списка <span class="node">Значений</span> происходит сразу после переключения режима. На больших магазинах иногда заметны задержки. Т.е. после переключения надо немного
+                    подождать.</p>
+                <h3 id="integro-override">Переопределение способа вставки значений.</h3>
+                <p>До сих пор <span class="node">Значения</span> или <span class="node">Шаблоны</span> в товар вставлялись в соответствии со способом, который установлен в настройках <a class="anchor"
+                        href="settings.html#settings-product"><mark><small>Добавление значений атрибута в товар</small></mark></a>.</p>
+                <p>Чтобы каждый раз не менять базовые настройки, добавлена возможность оперативно <mark><em>переопределить способ</em></mark> вставки значений.</p>
+                <select class="form-control" id="method-view" style="margin-left:3px; font-weight:normal; width:27%">
+                    <option value="1" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Очищать</option>
+                    <option value="2" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Не менять</option>
+                    <option value="3" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Заменять дежурным</option>
+                    <option selected="" value="4" style="overflow:hidden;" white-space:nowrap;="" text-overflow:ellipsis;="">Только в пустые</option>
+                </select>
                 <p></p>
-                <p><mark><em>Переопределенный способ</em></mark> имеет приоритет, но действует только на время работы в карточке товара. При перезагрузке страницы или загрузке другого товара он будет сброшен к <a class="anchor" href="settings.html#settings-product"><mark><small>действующей настройке</small></mark></a> модуля. Действие <mark><em>переопределенного способа</em></mark> распространяется на все <a href="#integro-product"><span class="text-danger font-italic">операции</span></a> с <span class="node">Дежурными шаблонами</span> в карточке товара.</p>
+                <p><mark><em>Переопределенный способ</em></mark> имеет приоритет, но действует только на время работы в карточке товара. При перезагрузке страницы или загрузке другого товара он будет сброшен к <a class="anchor"
+                        href="settings.html#settings-product"><mark><small>действующей настройке</small></mark></a> модуля. Действие <mark><em>переопределенного способа</em></mark> распространяется на все <a href="#integro-product"><span
+                            class="text-danger font-italic">операции</span></a> с <span class="node">Дежурными шаблонами</span> в карточке товара.</p>
 
                 <p>Вставка <span class="node">Дежурного шаблона</span> производится синхронно для всех языков в момент привязки к категории или выбора нового <span class="node">Атрибута</span>.</p>
-                <p>Если фильтр переключен в положение "Дежурные", а переключатель управления видом списка находится в положении "Шаблоны", то в списке будут только <span class="node">Дежурные шаблоны</span> и в момент выбора из списка произойдет синхронная подстановка в другие языки соответствующих им <span class="node">Дежурных шаблонов</span>.</p> 
+                <p>Если фильтр переключен в положение "Дежурные", а переключатель управления видом списка находится в положении "Шаблоны", то в списке будут только <span class="node">Дежурные шаблоны</span> и в момент выбора из списка
+                    произойдет синхронная подстановка в другие языки соответствующих им <span class="node">Дежурных шаблонов</span>.</p>
                 <p>Если вы хотите защитить ранее введенные <span class="node">Значения</span>, выбирайте способ вставки "Только в пустые".</p>
-                <h3 id="integro-clone">Вставка одинаковых значений - клонирование.</h3>                
-                <p>В версии 3.2.7, по многочисленным просьбам, добавлена возможность вставки одного и того же, выбранного из списка <span class="node">Значения</span> или <span class="node">Шаблона</span>, синхронно во все языки. Надеюсь, разница между синхронной вставкой <span class="node">Дежурного шаблона</span>, описанной ранее и вставкой одного и того же <span class="node">Значения</span> очевидна. </p>
+                <h3 id="integro-clone">Вставка одинаковых значений - клонирование.</h3>
+                <p>В версии 3.2.7, по многочисленным просьбам, добавлена возможность вставки одного и того же, выбранного из списка <span class="node">Значения</span> или <span class="node">Шаблона</span>, синхронно во все языки. Надеюсь,
+                    разница между синхронной вставкой <span class="node">Дежурного шаблона</span>, описанной ранее и вставкой одного и того же <span class="node">Значения</span> очевидна. </p>
                 <p>Возможно, это полезно, когда не требуется перевод с одного языка на другой или для предварительных действий перед работой переводчика. Сделано исключительно на основе пожеланий пользователей модуля.</p>
-                <p>Включается кнопкой:</p> 
+                <p>Включается кнопкой:</p>
                 <div class="btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-outline-dark active" style="margin-left:3px;">
                         <input type="checkbox" name="multi" id="multi"><i class="fa fa-copy"></i>
                     </label>
-                </div> 
+                </div>
                 <p>Состояние кнопки сохраняется на время сессии.</p>
                 <h3 id="integro-attribute">Поддержка атрибутов категории.</h3>
                 <p>Интеграция со страницей товара позволяет немного автоматизировать "ручной" способ добавления <span class="node">Атрибутов категории</span> в товар.</p>
@@ -165,66 +214,60 @@
                     Или в момент выбора категории из списка (OpenCart).</p>
                 <p>Удаление <span class="node">Атрибутов категории</span> происходит в момент "отвязки" товара от категории. Удаление необходимо подтвердить во всплывающем окне.</p>
                 <p>
-                    Добавление <span class="node">Значений атрибутов категории</span> в товар происходит в соответствии со способом, который установлен в настройках <a href="settings.html#settings-product"><mark><small><em>Добавление значений атрибута в товар</em></small></mark></a> или <a href="#integro-override"><mark><small><em>переопределенным способом</em></small></mark></a>.
+                    Добавление <span class="node">Значений атрибутов категории</span> в товар происходит в соответствии со способом, который установлен в настройках <a href="settings.html#settings-product"><mark><small><em>Добавление
+                                    значений атрибута в товар</em></small></mark></a> или <a href="#integro-override"><mark><small><em>переопределенным способом</em></small></mark></a>.
                 </p>
-                <p>В версии 3.1.8 появилась возможность добавить Атрибуты всех категорий, к которым "привязан" товар, одной кнопкой  непосредственно на вкладке "Атрибуты" ("Характеристики").</p>
+                <p>В версии 3.1.8 появилась возможность добавить <span class="node">Атрибуты</span> всех категорий, к которым "привязан" товар, одной кнопкой непосредственно на вкладке "Атрибуты" ("Характеристики") в карточке товара.</p>
                 <button type="button" id="attach-attribute" class="btn btn-success"><i class="fa fa-plus"></i> Атрибуты категорий</button>
+                <p>В версии 3.2.8 отменена зависимость работы этой кнопки от настройки <a class="anchor" href="settings.html#settings-category"><mark><small>Добавлять атрибут категории в товары</small></mark></a>.</p>
                 <div class="callout callout-info">
                     <h4>Информация.</h4>
                     <p>Все, что описано выше по поводу добавления <span class="node">Атрибутов категорий</span> и их <span class="node">Значений</span>, касается одного, конкретного, редактируемого товара.</p>
-                    <p>Если необходимо добавить <span class="node">Атрибуты категории</span> во все товары какой либо категории, то можно воспользоваться инструментом <a class="anchor" href="tools.html#tools-category"><mark><small>Атрибуты категорий</small></mark></a>.</p>
+                    <p>Если необходимо добавить <span class="node">Атрибуты категории</span> во все товары какой либо категории, используйте возможности модуля на вкладке <a class="anchor"
+                            href="using.html#using-attribute-category"><mark><small>Атрибуты категории</small></mark></a> или вопользуйтесь инструментом <a class="anchor" href="tools.html#tools-category"><mark><small>Атрибуты
+                                    категорий</small></mark></a>.</p>
                 </div>
+                <h3 id="integro-group">Атрибуты группы.</h3>
+                <p>В версии 3.2.8 появилась возможность добавить все <span class="node">Атрибуты группы</span> выбранной из списка, непосредственно на вкладке "Атрибуты" ("Характеристики") в карточке товара.</p>
+                <div class="row" style="margin-left: 15px;">
+                    <input type="text" name="attribute-group" value="" placeholder="Группа характеристик" id="attribute-group" class="col-md-5 col-sm-12 col-xs-12" style="font-weight:normal;" autocomplete="off">
+                    <ul class="dropdown-menu"></ul>
+                    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+                    <div class="col-md-5 col-sm-12 col-xs-12 btn-sm pull-right"></div>
+                </div>
+                <p>Из выпадающего списка можно выбрать <span class="node">Группу</span>, <span class="node">Атрибуты</span> которой вы хотите добавить в карточку товара. Групп может быть много, поэтому работает автодополнение, т.е. поиск и
+                    фильтрация в списке по мере ввода символов названия группы.</p>
                 <h3 id="integro-category">Интеграция со страницей категории.</h3>
                 <p>На сегодняшний день сохраняется интеграция на уровне карточки категории. Там должна появиться вкладка <mark><small>Атрибуты</small></mark>.</p>
                 <div class="callout callout-warning">
                     <h4>Особенности.</h4>
-                    <p>Интеграция сделана только в информационных целях. Можно только просматривать привязанные к категории атрибуты. Все операции с атрибутами категорий делаются через модуль. Это сделано, чтобы не дублировать функционал самого модуля и минимизировать модификации движка OpenCart, что может привести к возрастанию вероятности ошибок, конфликтов с другими модификаторами.</p>
+                    <p>Интеграция сделана только в информационных целях. Можно только просматривать привязанные к категории атрибуты. Все операции с атрибутами категорий делаются через модуль. Это сделано, чтобы не дублировать функционал
+                        самого модуля и минимизировать модификации движка OpenCart, что может привести к возрастанию вероятности ошибок, конфликтов с другими модификаторами.</p>
                 </div>
                 <p>Скриншоты ниже иллюстрируют интеграцию. Можно обратиться так же к разделу <a class="anchor" href="example.html#using-example">Примеры</a>.</p>
                 <ul id="gallery_integro_2" class="hes-gallery list-unstyled row" data-wrap="true" data-img-count="6">
                     <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/integro1.jpg" 
-                            alt="Integration OpenCart 2.x" 
-                            data-subtext="Integration OpenCart 2.x"  
-                            data-alt="Integration OpenCart 2.x"
+                        <img src="/img/help/attributico/integro1.jpg" alt="Integration OpenCart 2.x" data-subtext="Integration OpenCart 2.x" data-alt="Integration OpenCart 2.x" class="img-thumbnail img-responsive mrb15">
+                    </li>
+                    <li class="col-xs-6 col-md-4">
+                        <img src="/img/help/attributico/attach_button.jpg" alt="Attach attributes by one click" data-subtext="Attach attributes by one click" data-alt="Attach attributes by one click"
                             class="img-thumbnail img-responsive mrb15">
                     </li>
                     <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/attach_button.jpg" 
-                            alt="Attach attributes by one click" 
-                            data-subtext="Attach attributes by one click"  
-                            data-alt="Attach attributes by one click"
-                            class="img-thumbnail img-responsive mrb15">                        
+                        <img src="/img/help/attributico/integro2.png" alt="Integration OpenCart - links" data-subtext="Integration OpenCart - links" data-alt="Integration OpenCart - links" class="img-thumbnail img-responsive mrb15">
                     </li>
                     <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/integro2.png" 
-                            alt="Integration OpenCart - links" 
-                            data-subtext="Integration OpenCart - links"  
-                            data-alt="Integration OpenCart - links"
-                            class="img-thumbnail img-responsive mrb15">                        
-                    </li> 
+                        <img src="/img/help/attributico/integro22.png" alt="Integration OpenCart 2.2.x" data-subtext="Integration OpenCart 2.2.x" data-alt="Integration OpenCart 2.2.x" class="img-thumbnail img-responsive mrb15">
+                    </li>
                     <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/integro22.png" 
-                            alt="Integration OpenCart 2.2.x" 
-                            data-subtext="Integration OpenCart 2.2.x"  
-                            data-alt="Integration OpenCart 2.2.x"
-                            class="img-thumbnail img-responsive mrb15">                        
-                    </li> 
+                        <img src="/img/help/attributico/integro_category.png" alt="Integration OpenCart - category" data-subtext="Integration OpenCart - category" data-alt="Integration OpenCart - category"
+                            class="img-thumbnail img-responsive mrb15">
+                    </li>
                     <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/integro_category.png" 
-                            alt="Integration OpenCart - category" 
-                            data-subtext="Integration OpenCart - category"  
-                            data-alt="Integration OpenCart - category"
-                            class="img-thumbnail img-responsive mrb15">                        
-                    </li> 
-                    <li class="col-xs-6 col-md-4">
-                        <img src="/img/help/attributico/remove_category.jpg" 
-                            alt="Integration OpenCart - remove category" 
-                            data-subtext="Integration OpenCart - remove category"  
-                            data-alt="Integration OpenCart - remove category"
-                            class="img-thumbnail img-responsive mrb15">                        
-                    </li>                    
-                </ul>                
+                        <img src="/img/help/attributico/remove_category.jpg" alt="Integration OpenCart - remove category" data-subtext="Integration OpenCart - remove category" data-alt="Integration OpenCart - remove category"
+                            class="img-thumbnail img-responsive mrb15">
+                    </li>
+                </ul>
             </div>
         </main>
         <nav class="d-none d-xl-block col-xl-2 bd-right" aria-label="Secondary navigation">
@@ -235,6 +278,7 @@
                 <li class="nav-item"><a class="nav-link" href="#integro-override">Вставка значений</a></li>
                 <li class="nav-item"><a class="nav-link" href="#integro-clone">Клонирование значений</a></li>
                 <li class="nav-item"><a class="nav-link" href="#integro-attribute">Атрибуты категории</a></li>
+                <li class="nav-item"><a class="nav-link" href="#integro-group">Атрибуты группы</a></li>
                 <li class="nav-item"><a class="nav-link" href="#integro-category">Страница категории</a></li>
             </ul>
         </nav>

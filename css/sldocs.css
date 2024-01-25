@@ -19,6 +19,10 @@ a.anchor {
   font-style: italic;
 }
 
+.table thead > tr > td, .table tbody > tr > td {
+  vertical-align: middle;
+}
+
 /*
  * Scrollspy and affix Sidebar css
  */
